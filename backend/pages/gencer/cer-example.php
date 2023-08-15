@@ -1,6 +1,6 @@
-<?php require $_SERVER['DOCUMENT_ROOT'] . "/project/vendor/autoload.php"; ?>
-<?php require $_SERVER['DOCUMENT_ROOT'] . "/project/lib/TCPDF-master/tcpdf.php"; ?>
-<?php require $_SERVER['DOCUMENT_ROOT'] . "/project/function/function.php"; ?>
+<?php require $_SERVER['DOCUMENT_ROOT'] . "/app-certificate/vendor/autoload.php"; ?>
+<?php require $_SERVER['DOCUMENT_ROOT'] . "/app-certificate/lib/TCPDF-master/tcpdf.php"; ?>
+<?php require $_SERVER['DOCUMENT_ROOT'] . "/app-certificate/function/function.php"; ?>
 <?php
 
 // use App\Model\Certificate\Data;

@@ -6,5 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Database\\DbCertificate' => $baseDir . '/src/Database/DbCertificate.php',
+    'App\\Model\\Mangement' => $baseDir . '/src/Model/Mangement.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
 );

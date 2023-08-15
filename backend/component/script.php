@@ -1,47 +1,47 @@
 <!-- jQuery -->
-<script src="/project/plugins/jquery/jquery.min.js"></script>
+<script src="/app-certificate/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="/project/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/app-certificate/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Summernote -->
-<script src="/project/plugins/summernote/summernote-bs4.min.js"></script>
+<script src="/app-certificate/plugins/summernote/summernote-bs4.min.js"></script>
 
 <!-- DataTables  & Plugins -->
-<script src="/project/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="/project/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="/project/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="/project/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="/project/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="/project/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="/project/plugins/jszip/jszip.min.js"></script>
-<script src="/project/plugins/pdfmake/pdfmake.min.js"></script>
-<script src="/project/plugins/pdfmake/vfs_fonts.js"></script>
-<script src="/project/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="/project/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="/project/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script src="/app-certificate/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/app-certificate/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="/app-certificate/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="/app-certificate/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="/app-certificate/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="/app-certificate/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="/app-certificate/plugins/jszip/jszip.min.js"></script>
+<script src="/app-certificate/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="/app-certificate/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="/app-certificate/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="/app-certificate/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="/app-certificate/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
 <!-- Select2 -->
-<script src="/project/plugins/select2/js/select2.full.min.js"></script>
+<script src="/app-certificate/plugins/select2/js/select2.full.min.js"></script>
 <!-- date-range-picker -->
-<script src="/project/plugins/daterangepicker/daterangepicker.js"></script>
+<script src="/app-certificate/plugins/daterangepicker/daterangepicker.js"></script>
 <!-- Bootstrap Switch -->
-<script src="/project/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<script src="/app-certificate/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
 <!-- BS-Stepper -->
-<script src="/project/plugins/bs-stepper/js/bs-stepper.min.js"></script>
+<script src="/app-certificate/plugins/bs-stepper/js/bs-stepper.min.js"></script>
 
 <!-- SweetAlert2 -->
-<script src="/project/plugins/sweetalert2/sweetalert2.min.js"></script>
+<script src="/app-certificate/plugins/sweetalert2/sweetalert2.min.js"></script>
 <!-- Toastr -->
-<script src="/project/plugins/toastr/toastr.min.js"></script>
+<script src="/app-certificate/plugins/toastr/toastr.min.js"></script>
 
 <!-- bs-custom-file-input -->
-<script src="/project/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<script src="/app-certificate/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 
 <!-- overlayScrollbars -->
-<script src="/project/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="/app-certificate/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 
 <!-- AdminLTE App -->
-<script src="/project/dist/js/adminlte.min.js"></script>
+<script src="/app-certificate/dist/js/adminlte.min.js"></script>
 
 <!-- Page specific script -->
 <script>
@@ -54,7 +54,8 @@
       theme: 'bootstrap4'
     })
 
-    
+   
+
     // Summernote
     $('#summernote').summernote()
 
@@ -179,7 +180,7 @@
         body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.',
         title: 'Toast Title',
         subtitle: 'Subtitle',
-        image: '/project/dist/img/user3-128x128.jpg',
+        image: '/app-certificate/dist/img/user3-128x128.jpg',
         imageAlt: 'User Picture',
       })
     });
@@ -224,4 +225,7 @@
       })
     });
   });
+  document.addEventListener('DOMContentLoaded', function() {
+    window.stepper = new Stepper(document.querySelector('.bs-stepper'))
+  })
 </script>

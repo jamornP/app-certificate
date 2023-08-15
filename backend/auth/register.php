@@ -18,7 +18,7 @@
 <div class="register-box">
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="/project/" class="h1"><b>Science</b></a>
+      <a href="/app-certificate/" class="h1"><b>Science</b></a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Register a new membership</p>

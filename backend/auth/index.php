@@ -6,14 +6,14 @@
   <title>project</title>
 
   <!-- link -->
-  <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/project/backend/component/link.php");   ?>
+  <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/component/link.php");   ?>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="/project/" class="h1"><b>Science</b></a>
+      <a href="/app-certificate/" class="h1"><b>Science</b></a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Sign in to start your session</p>
@@ -70,7 +70,7 @@
 <!-- /.login-box -->
 
 <!-- script -->
-<?php require_once($_SERVER['DOCUMENT_ROOT'] . "/project/backend/component/script.php");   ?>
+<?php require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/component/script.php");   ?>
 
 </body>
 </html>

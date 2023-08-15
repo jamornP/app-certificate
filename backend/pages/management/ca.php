@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Project</title>
     <!-- link -->
-    <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/project/backend/component/link.php");   ?>
+    <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/component/link.php");   ?>
 
 </head>
 
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
         <!-- load -->
-        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/project/backend/component/load.php");   ?>
+        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/component/load.php");   ?>
         <!-- nav -->
-        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/project/backend/component/navbar.php");   ?>
+        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/component/navbar.php");   ?>
         <!-- menu-left -->
-        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/project/backend/component/menu-left.php");   ?>
+        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/component/menu-left.php");   ?>
         <div class="content-wrapper">
             <?php
             if (isset($_POST['add'])) {
@@ -27,11 +27,11 @@
                 if (isset($_FILES['ca']['tmp_name'])) {
                     $ext = (explode(".", $_FILES['ca']['name']));
                     $new_name = uniqid(). "." . $ext[1];
-                    $file_path = $_SERVER['DOCUMENT_ROOT'] . "/project/backend/images/ca/" . $new_name;
+                    $file_path = $_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/images/ca/" . $new_name;
                     if ($_FILES['ca']['error'] == 0) {
                         move_uploaded_file($_FILES['ca']['tmp_name'], $file_path);
                         $data['ca_name'] = $_POST['ca_name'];
-                        $data['ca_path'] = "/project/backend/images/ca/". $new_name;;
+                        $data['ca_path'] = "/app-certificate/backend/images/ca/". $new_name;;
                         $data['status'] = 1;
                         // print_r($data);
                         $ck = $mangeObj->addca($data);
@@ -153,14 +153,14 @@
         </div>
 
         <!-- footer -->
-        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/project/backend/component/footer.php");   ?>
+        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/component/footer.php");   ?>
         <!-- sidebar -->
-        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/project/backend/component/sidebar.php");   ?>
+        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/component/sidebar.php");   ?>
     </div>
 
 
     <!-- script -->
-    <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/project/backend/component/script.php");   ?>
+    <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/component/script.php");   ?>
     <script>
         $(function() {
             bsCustomFileInput.init();

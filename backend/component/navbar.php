@@ -1,5 +1,5 @@
-<?php require $_SERVER['DOCUMENT_ROOT'] . "/project/vendor/autoload.php"; ?>
-<?php require $_SERVER['DOCUMENT_ROOT'] . "/project/function/function.php"; ?>
+<?php require $_SERVER['DOCUMENT_ROOT'] . "/app-certificate/vendor/autoload.php"; ?>
+<?php require $_SERVER['DOCUMENT_ROOT'] . "/app-certificate/function/function.php"; ?>
 <?php
 
 // use App\Model\Auth;
@@ -17,7 +17,7 @@ date_default_timezone_set('Asia/Bangkok');
             <a href="" class="nav-link"><i class="fas fa-home"></i> Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Contact</a>
+            <a href="/app-certificate/backend/pages/certificate" class="nav-link"><i class="far fa-id-card"></i>  Create Certificate</a>
         </li>
     </ul>
     <ul class="navbar-nav ml-auto">

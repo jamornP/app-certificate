@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Project</title>
     <!-- link -->
-    <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/project/backend/component/link.php");   ?>
+    <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/component/link.php");   ?>
 
 </head>
 
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
         <!-- load -->
-        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/project/backend/component/load.php");   ?>
+        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/component/load.php");   ?>
         <!-- nav -->
-        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/project/backend/component/navbar.php");   ?>
+        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/component/navbar.php");   ?>
         <!-- menu-left -->
-        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/project/backend/component/menu-left.php");   ?>
+        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/component/menu-left.php");   ?>
         <div class="content-wrapper">
             <?php
             if (isset($_POST['add'])) {
@@ -28,18 +28,18 @@
                 if (isset($_FILES['file-php']['tmp_name'])) {
                     $ext = (explode(".", $_FILES['file-php']['name']));
                     $new_name = $_POST['f_name'] . "." . $ext[1];
-                    $file_path = $_SERVER['DOCUMENT_ROOT'] . "/project/backend/pages/gencer/" . $new_name;
+                    $file_path = $_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/pages/gencer/" . $new_name;
                     if ($_FILES['file-php']['error'] == 0) {
                         move_uploaded_file($_FILES['file-php']['tmp_name'], $file_path);
                         $data['f_name'] = $new_name;
-                        $data['f_path'] = "/project/backend/pages/gencer/" . $new_name;;
+                        $data['f_path'] = "/app-certificate/backend/pages/gencer/" . $new_name;;
                         if (isset($_FILES['f_img']['tmp_name'])) {
                             $ext2 = (explode(".", $_FILES['f_img']['name']));
                             $new_name2 = $_POST['f_name'] . "." . $ext2[1];
-                            $file_path2 = $_SERVER['DOCUMENT_ROOT'] . "/project/backend/images/example/" . $new_name2;
+                            $file_path2 = $_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/images/example/" . $new_name2;
                             if ($_FILES['f_img']['error'] == 0) {
                                 move_uploaded_file($_FILES['f_img']['tmp_name'], $file_path);
-                                $data['f_img'] = "/project/backend/images/example/" . $new_name2;;
+                                $data['f_img'] = "/app-certificate/backend/images/example/" . $new_name2;;
                                 $data['status'] = 1;
                                 $ck = $mangeObj->addPHP($data);
                                 if ($ck) {
@@ -173,14 +173,14 @@
         </div>
 
         <!-- footer -->
-        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/project/backend/component/footer.php");   ?>
+        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/component/footer.php");   ?>
         <!-- sidebar -->
-        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/project/backend/component/sidebar.php");   ?>
+        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/component/sidebar.php");   ?>
     </div>
 
 
     <!-- script -->
-    <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/project/backend/component/script.php");   ?>
+    <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/component/script.php");   ?>
     <script>
         $(function() {
             bsCustomFileInput.init();

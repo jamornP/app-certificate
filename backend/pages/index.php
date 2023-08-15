@@ -4,20 +4,20 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Project</title>
+    <title>app-certificate</title>
     <!-- link -->
-    <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/project/backend/component/link.php");   ?>
+    <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/component/link.php");   ?>
 
 </head>
 
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
         <!-- load -->
-        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/project/backend/component/load.php");   ?>
+        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/component/load.php");   ?>
         <!-- nav -->
-        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/project/backend/component/navbar.php");   ?>
+        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/component/navbar.php");   ?>
         <!-- menu-left -->
-        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/project/backend/component/menu-left.php");   ?>
+        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/component/menu-left.php");   ?>
         <div class="content-wrapper">
 
             <section class="content-header">
@@ -92,14 +92,14 @@
         </div>
 
         <!-- footer -->
-        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/project/backend/component/footer.php");   ?>
+        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/component/footer.php");   ?>
         <!-- sidebar -->
-        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/project/backend/component/sidebar.php");   ?>
+        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/component/sidebar.php");   ?>
     </div>
 
 
     <!-- script -->
-    <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/project/backend/component/script.php");   ?>
+    <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/component/script.php");   ?>
 
 </body>
 
