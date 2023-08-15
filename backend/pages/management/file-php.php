@@ -41,7 +41,6 @@
                                 move_uploaded_file($_FILES['f_img']['tmp_name'], $file_path);
                                 $data['f_img'] = "/project/backend/images/example/" . $new_name2;;
                                 $data['status'] = 1;
-                                // print_r($data);
                                 $ck = $mangeObj->addPHP($data);
                                 if ($ck) {
                                     $msg = "บันทึกข้อมูลสำเร็จ";
