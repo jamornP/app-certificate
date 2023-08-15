@@ -43,7 +43,7 @@
                         <div class="card card-outline card-info">
                             <div class="card-header">
                                 <h3 class="card-title">
-                                    Summernote
+                                    Summernote จามร
                                 </h3>
                             </div>
 
