@@ -3,6 +3,7 @@ namespace App\Model;
 use App\Database\DbCertificate;
 
 class Mangement extends DbCertificate{
+    // background
     public function addBg($data) {
         $sql = "
             INSERT INTO tb_background(
@@ -30,8 +31,16 @@ class Mangement extends DbCertificate{
         }else{
             return $data;
         }
-
     }
+    public function getBgById($id){
+        $sql = "
+            SELECT * FROM tb_background WHERE b_id={$id}
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        return $data[0];
+    }
+    // CA
     public function addCa($data) {
         $sql = "
             INSERT INTO tb_ca(
@@ -59,8 +68,16 @@ class Mangement extends DbCertificate{
         }else{
             return $data;
         }
-
     }
+    public function getCaById($id){
+        $sql = "
+            SELECT * FROM tb_ca WHERE ca_id={$id}
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        return $data[0];
+    }
+    // File PHP
     public function addPHP($data) {
         $sql = "
             INSERT INTO tb_filephp(
@@ -90,7 +107,14 @@ class Mangement extends DbCertificate{
         }else{
             return $data;
         }
-
+    }
+    public function getPHPById($id){
+        $sql = "
+            SELECT * FROM tb_filephp WHERE f_id={$id}
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        return $data[0];
     }
 }
 ?>

@@ -18,9 +18,21 @@
         <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/component/navbar.php");   ?>
         <!-- menu-left -->
         <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/component/menu-left.php");   ?>
-        <div class="content-wrapper">
+
 
         <div class="content-wrapper">
+            <?php
+            // print_r($_POST);
+            // echo "<br>";
+            // print_r($_FILES);
+
+            if (isset($_POST['submit'])) {
+                print_r($_POST);
+                echo "<br>";
+               
+            }
+
+            ?>
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
@@ -41,50 +53,80 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card card-default">
-                                <div class="card-header">
-                                    <h3 class="card-title">สร้าง Certificate</h3>
+                                <div class="card-header bg-primary">
+                                    <h3 class="card-title">สร้าง Certificate ขั้นตอนที่ 1</h3>
                                 </div>
                                 <div class="card-body p-0">
                                     <div class="bs-stepper linear">
                                         <div class="bs-stepper-header" role="tablist">
-                                            <div class="step active" data-target="#one">
+
+                                            <!-- <div class="step" data-target="#one">
                                                 <button type="button" class="step-trigger" role="tab" aria-controls="one" id="one-trigger" aria-selected="true">
+                                                    <span class="bs-stepper-circle">1</span>
+                                                    <span class="bs-stepper-label">เลือกไฟล์ Excel</span>
+                                                </button>
+                                            </div>
+                                            <div class="line"></div> -->
+                                            <div class="step active" data-target="#two">
+                                                <button type="button" class="step-trigger" role="tab" aria-controls="two" id="two-trigger" aria-selected="true" >
                                                     <span class="bs-stepper-circle">1</span>
                                                     <span class="bs-stepper-label">เลือก Background</span>
                                                 </button>
                                             </div>
                                             <div class="line"></div>
-                                            <div class="step" data-target="#two">
-                                                <button type="button" class="step-trigger" role="tab" aria-controls="two" id="two-trigger" aria-selected="false" disabled="disabled">
+                                            <div class="step" data-target="#tree">
+                                                <button type="button" class="step-trigger" role="tab" aria-controls="tree" id="tree-trigger" aria-selected="false" disabled="disabled">
                                                     <span class="bs-stepper-circle">2</span>
                                                     <span class="bs-stepper-label">เลือก ลายเซ็นต์</span>
                                                 </button>
                                             </div>
                                             <div class="line"></div>
-                                            <div class="step" data-target="#tree">
-                                                <button type="button" class="step-trigger" role="tab" aria-controls="tree" id="tree-trigger" aria-selected="false" disabled="disabled">
+                                            <div class="step" data-target="#four">
+                                                <button type="button" class="step-trigger" role="tab" aria-controls="four" id="four-trigger" aria-selected="false" disabled="disabled">
                                                     <span class="bs-stepper-circle">3</span>
                                                     <span class="bs-stepper-label">เลือกรูปแบบข้อความ</span>
                                                 </button>
                                             </div>
-                                            <div class="line"></div>
-                                            <div class="step" data-target="#four">
-                                                <button type="button" class="step-trigger" role="tab" aria-controls="four" id="four-trigger" aria-selected="false" disabled="disabled">
-                                                    <span class="bs-stepper-circle">4</span>
-                                                    <span class="bs-stepper-label">เลือกกิจกรรม</span>
-                                                </button>
-                                            </div>
+
                                         </div>
-                                        <div class="bs-stepper-content">
-                                            <div id="one" class="content active dstepper-block" role="tabpanel" aria-labelledby="one-trigger">
-                                                <p>1. เลือก Background</p>
-                                                <div class="row">
-                                                    <?php
-                                                    $data = $mangeObj->getBg("data");
-                                                    $i = 0;
-                                                    foreach ($data as $bg) {
-                                                        $i++;
-                                                        echo "
+                                        <form action="create.php" method="post" enctype="multipart/form-data" id="">
+                                            <div class="bs-stepper-content vh-50">
+                                                <!-- <div id="one" class="content" role="tabpanel" aria-labelledby="one-trigger">
+                                                    <p>1. เลือกไฟล์ Excel</p>
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label for="excel">File รายชื่อ </label>
+                                                                <div class="input-group">
+                                                                    <div class="custom-file">
+                                                                        <input type="file" class="custom-file-input" id="excel" accept=".xls, .xlsx, .csv" name="excel">
+                                                                        <label class="custom-file-label" for="excel">Choose file</label>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <span class="input-group-append"><button type="submit" class="btn btn-primary" name="read">ดูรายชื่อ</button></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <hr>
+                                                    <a class="btn btn-primary" onclick="stepper.next()">Next</a>
+
+                                                </div> -->
+                                                <div id="two" class="content active dstepper-block" role="tabpanel" aria-labelledby="two-trigger">
+                                                    <p>1. เลือก Background</p>
+                                                    <div class="row">
+                                                        <?php
+                                                        $data = $mangeObj->getBg("data");
+                                                        $i = 0;
+                                                        foreach ($data as $bg) {
+                                                            $i++;
+                                                            echo "
                                                             <div class='col-lg-2 col-md-4 col-4 p-1'>
                                                                 <div class='form-group clearfix'>
                                                                     <div class='icheck-success d-inline'>
@@ -97,21 +139,21 @@
                                                                 </div>
                                                             </div>
                                                         ";
-                                                    }
-                                                    ?>
+                                                        }
+                                                        ?>
+                                                    </div>
+                                                    <hr>
+                                                    <a class="btn btn-primary" onclick="stepper.next()">Next</a>
                                                 </div>
-                                                <hr>
-                                                <button class="btn btn-primary" onclick="stepper.next()">Next</button>
-                                            </div>
-                                            <div id="two" class="content" role="tabpanel" aria-labelledby="two-trigger">
-                                                <p>2. เลือก ลายเซ็นต์</p>
-                                                <div class="row">
-                                                    <?php
-                                                    $data = $mangeObj->getCa("data");
-                                                    $i = 0;
-                                                    foreach ($data as $ca) {
-                                                        $i++;
-                                                        echo "
+                                                <div id="tree" class="content" role="tabpanel" aria-labelledby="tree-trigger">
+                                                    <p>2. เลือก ลายเซ็นต์</p>
+                                                    <div class="row">
+                                                        <?php
+                                                        $data = $mangeObj->getCa("data");
+                                                        $i = 0;
+                                                        foreach ($data as $ca) {
+                                                            $i++;
+                                                            echo "
                                                             <div class='col-lg-2 col-md-4 col-6 p-1'>
                                                                 <div class='form-group clearfix'>
                                                                     <div class='icheck-success d-inline'>
@@ -123,22 +165,22 @@
                                                                 </div>
                                                             </div>
                                                         ";
-                                                    }
-                                                    ?>
+                                                        }
+                                                        ?>
+                                                    </div>
+                                                    <hr>
+                                                    <a class="btn btn-primary" onclick="stepper.previous()">Previous</a>
+                                                    <a class="btn btn-primary" onclick="stepper.next()">Next</a>
                                                 </div>
-                                                <hr>
-                                                <button class="btn btn-primary" onclick="stepper.previous()">Previous</button>
-                                                <button class="btn btn-primary" onclick="stepper.next()">Next</button>
-                                            </div>
-                                            <div id="tree" class="content" role="tabpanel" aria-labelledby="tree-trigger">
-                                                <p>3. เลือกรูปแบบ</p>
-                                                <div class="row">
-                                                    <?php
-                                                    $data = $mangeObj->getPHP("data");
-                                                    $i = 0;
-                                                    foreach ($data as $f) {
-                                                        $i++;
-                                                        echo "
+                                                <div id="four" class="content" role="tabpanel" aria-labelledby="four-trigger">
+                                                    <p>3. เลือกรูปแบบ</p>
+                                                    <div class="row">
+                                                        <?php
+                                                        $data = $mangeObj->getPHP("data");
+                                                        $i = 0;
+                                                        foreach ($data as $f) {
+                                                            $i++;
+                                                            echo "
                                                             <div class='col-lg-2 col-md-4 col-4 p-1'>
                                                                 <div class='form-group clearfix'>
                                                                     <div class='icheck-success d-inline'>
@@ -152,30 +194,71 @@
                                                                 
                                                             </div>
                                                         ";
-                                                    }
-                                                    ?>
-                                                </div>
-                                                <hr>
-                                                <button class="btn btn-primary" onclick="stepper.previous()">Previous</button>
-                                                <button class="btn btn-primary" onclick="stepper.next()">Next</button>
-                                            </div>
-                                            <div id="four" class="content" role="tabpanel" aria-labelledby="four-trigger">
-                                                <p>4. เลือกกิจกรรม</p>
-                                                <div class="row">
+                                                        }
+                                                        ?>
+                                                    </div>
+                                                    <hr>
+                                                    <a class="btn btn-primary" onclick="stepper.previous()">Previous</a>
+                                                    <button type="submit" class="btn btn-primary" name="submit">Submit</button>
 
                                                 </div>
-                                                <hr>
-                                                <button class="btn btn-primary" onclick="stepper.previous()">Previous</button>
-                                                <button type="submit" class="btn btn-primary">Submit</button>
+
                                             </div>
-                                        </div>
+                                        </form>
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <!-- Visit <a href="https://github.com/Johann-S/bs-stepper/#how-to-use-it">bs-stepper documentation</a> for more examples and information about the plugin. -->
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <?php
+                                                if (isset($_POST['read']) && $_FILES['excel']['error'] == 0) {
+                                                    require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/lib/PHPExcel/Classes/PHPExcel.php");
+                                                    $tmpFile = $_FILES['excel']['tmp_name'];
+                                                    $objPHPExcel = PHPExcel_IOFactory::load($tmpFile);
+                                                    $cell_collection = $objPHPExcel->getActiveSheet()->getCellCollection();
+                                                    function get($c)
+                                                    {
+                                                        $k = array("A" => "num", "B" => "project", "C" => "school", "D" => "level", "E" => "student", "F" => "teacher");
+                                                        return $k[$c];
+                                                    }
+
+                                                    $i = 1;
+                                                    $j = 0;
+                                                    foreach ($cell_collection as $cell) {
+
+                                                        // ค่าสำหรับดูว่าเป็นคอลัมน์ไหน เช่น A B C ....
+                                                        $column = $objPHPExcel->getActiveSheet()->getCell($cell)->getColumn();
+                                                        // คำสำหรับดูว่าเป็นแถวที่เท่าไหร่ เช่น 1 2 3 .....
+                                                        $row = $objPHPExcel->getActiveSheet()->getCell($cell)->getRow();
+                                                        // ค่าของข้อมูลในเซลล์นั้นๆ เช่น A1 B1 C1 ....
+                                                        $data_value = $objPHPExcel->getActiveSheet()->getCell($cell)->getValue();
+
+                                                        if ($i == (int)$row) {
+                                                            if ($j == 0) {
+                                                                echo "<th>{$data_value}</th>";
+                                                            } else {
+                                                                $col = get($column);
+                                                                echo "<td>{$data_value}</td>";
+                                                                $dataSt[$j][$col] = $data_value;
+                                                            }
+                                                        } else {
+                                                            echo "</tr>";
+                                                            $i++;
+                                                            $j++;
+                                                            echo "<tr><td>{$j}</td>";
+                                                            $col = get($column);
+                                                            $dataSt[$j][$col] = $j;
+                                                        }
+                                                    }
+                                                }
+                                                
+                                                ?>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
 
@@ -193,7 +276,11 @@
 
     <!-- script -->
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/component/script.php");   ?>
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            window.stepper = new Stepper(document.querySelector('.bs-stepper'))
+        })
+    </script>
 </body>
 
 </html>

@@ -45,7 +45,7 @@
 
 <!-- Page specific script -->
 <script>
-  $(function () {
+  $(function() {
     //Initialize Select2 Elements
     $('.select2').select2()
 
@@ -54,14 +54,16 @@
       theme: 'bootstrap4'
     })
 
-   
+
 
     // Summernote
     $('#summernote').summernote()
 
     // DataTable
     $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "responsive": true,
+      "lengthChange": false,
+      "autoWidth": false,
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     $('#example2').DataTable({
@@ -225,7 +227,10 @@
       })
     });
   });
-  document.addEventListener('DOMContentLoaded', function() {
-    window.stepper = new Stepper(document.querySelector('.bs-stepper'))
-  })
+  
+</script>
+<script>
+  $(function() {
+    bsCustomFileInput.init();
+  });
 </script>

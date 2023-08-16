@@ -81,12 +81,6 @@
                                 </button>
                             </div>
                             <div class="card-body">
-                                <!-- <button type="button" class="btn btn-success swalDefaultSuccess">
-                                    Launch Success Toast
-                                </button>
-                                <button type="button" class="btn btn-success toastrDefaultSuccess">
-                                    Launch Success Toast
-                                </button> -->
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="row">
@@ -168,9 +162,9 @@
     <!-- script -->
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/component/script.php");   ?>
     <script>
-        $(function() {
-            bsCustomFileInput.init();
-        });
+        // $(function() {
+        //     bsCustomFileInput.init();
+        // });
     </script>
 </body>
 

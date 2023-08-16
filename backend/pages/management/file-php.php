@@ -38,7 +38,7 @@
                             $new_name2 = $_POST['f_name'] . "." . $ext2[1];
                             $file_path2 = $_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/images/example/" . $new_name2;
                             if ($_FILES['f_img']['error'] == 0) {
-                                move_uploaded_file($_FILES['f_img']['tmp_name'], $file_path);
+                                move_uploaded_file($_FILES['f_img']['tmp_name'], $file_path2);
                                 $data['f_img'] = "/app-certificate/backend/images/example/" . $new_name2;;
                                 $data['status'] = 1;
                                 $ck = $mangeObj->addPHP($data);
@@ -98,7 +98,7 @@
                                             foreach ($data as $f) {
                                                 echo "
                                                     <div class='col-md-3 col-6 p-1'>
-                                                        <img src='{$f['f_path']}' class='img-thumbnail shadow' alt='...'>
+                                                        <img src='{$f['f_img']}' class='img-thumbnail shadow' alt='...'>
                                                         <p class='text-center'>{$f['f_name']}</p>
                                                     </div>
                                                 ";
