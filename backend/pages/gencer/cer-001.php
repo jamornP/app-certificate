@@ -313,7 +313,7 @@
                 $pdf->Output($fileNL, 'F');
                 // $pdf->write2DBarcode('http://sciserv01.sci.kmitl.ac.th/sci-certificate/', 'QRCODE,M', 10, 172, 30, 30, $style, 'N');
                 // $pdf->Output('preview.pdf', 'I');
-                $dataC['b_name']=$_POST['batch_name'];
+                $dataC['ba_name']=$_POST['batch_name'];
                 $dataC['num']=$num;
                 $dataC['name']=$name;
                 $dataC['school']=$school;
@@ -326,6 +326,7 @@
                 $dataC['event']=$event;
                 $dataC['event_date']=$event_date;
                 $dataC['ca_name']=$ca_name;
+                $dataC['link']='/app-certificate/upload/certificate/' . $folder . '/' . $filename;
                 $ckC = $mangeObj->addDataCertificate($dataC);
 
             }

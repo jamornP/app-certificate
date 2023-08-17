@@ -125,7 +125,7 @@ class Mangement extends DbCertificate{
     public function addDataCertificate($data){
         $sql ="
             INSERT INTO tb_data_certificate(
-                b_name,
+                ba_name,
                 num,
                 name,
                 school,
@@ -137,9 +137,10 @@ class Mangement extends DbCertificate{
                 award,
                 event,
                 event_date,
-                ca_name
+                ca_name,
+                link
             ) VALUES (
-                :b_name,
+                :ba_name,
                 :num,
                 :name,
                 :school,
@@ -151,14 +152,28 @@ class Mangement extends DbCertificate{
                 :award,
                 :event,
                 :event_date,
-                :ca_name
+                :ca_name,
+                :link
             )
         ";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute($data);
         return $this->pdo->lastInsertId();
     }
-
+    public function getDataCerByBatch($action,$batch){
+        $sql = "
+            SELECT *
+            FROM tb_data_certificate
+            WHERE ba_name='{$batch}'
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        if($action=='count'){
+            return count($data);
+        }else{
+            return $data;
+        }
+    }
     // Batch
     public function addBatch($data){
         $sql = "
@@ -198,6 +213,16 @@ class Mangement extends DbCertificate{
             return $num;
         }
         
+    }
+    public function getBatchAll(){
+        $sql = "
+            SELECT *
+            FROM tb_batch
+            ORDER BY ba_date DESC
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        return $data;
     }
 }
 ?>

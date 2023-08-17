@@ -24,12 +24,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Data Certificate</h1>
+                            <h1>Batch Data Certificate</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Data Certificate</li>
+                                <li class="breadcrumb-item active">Batch Data Certificate</li>
                             </ol>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                         <div class="card card-outline card-info">
                             <div class="card-header">
                                 <h3 class="card-title">
-                                    รายการสร้าง Certificate
+                                    Batch Data Certificate
                                 </h3>
                             </div>
 
@@ -51,27 +51,31 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
+                                            <th>#</th>
                                             <th>Batch Name</th>
-                                            <th>Date</th>
-                                            <th>Activity Name</th>
-                                            <th>Folder</th>
-                                            <th>Count Certificate</th>
+                                            <th>Name</th>
+                                            <th>School</th>
+                                            <th>Activity</th>
+                                            <th>Award</th>
+                                            <th>Event</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-                                            $data = $mangeObj->getBatchAll();
+                                            $data = $mangeObj->getDataCerByBatch("data",$_GET['ba']);
                                             // print_r($data);
-                                            foreach($data as $ba){
-                                                $countC = $mangeObj->getDataCerByBatch("count",$ba['ba_name']);
-                                                $dateB = datethai_time($ba['ba_date']);
+                                            foreach($data as $st){
+                                                // $countC = $mangeObj->getDataCerByBatch("count",$ba['ba_name']);
+                                                // $dateB = datethai_time($ba['ba_date']);
                                                 echo "
                                                     <tr>
-                                                        <td><a href='/app-certificate/backend/pages/batch-data.php?ba={$ba['ba_name']}'>{$ba['ba_name']}</a></td>
-                                                        <td>{$dateB}</td>
-                                                        <td>{$ba['activity_name']}</td>
-                                                        <td>{$ba['folder']}</td>
-                                                        <td>{$countC}</td>
+                                                        <td>{$st['num']}</td>
+                                                        <td>{$st['ba_name']}</td>
+                                                        <td><a href='{$st['link']}' target='_bank'>{$st['name']}</a></td>
+                                                        <td>{$st['school']}</td>
+                                                        <td>{$st['activity']}</td>
+                                                        <td>{$st['award']}</td>
+                                                        <td>{$st['event']}</td>
                                                     </tr>
                                                 
                                                 ";

@@ -14,7 +14,7 @@ date_default_timezone_set('Asia/Bangkok');
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="" class="nav-link"><i class="fas fa-home"></i> Home</a>
+            <a href="/app-certificate/backend/pages" class="nav-link"><i class="fas fa-home"></i> Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
             <a href="/app-certificate/backend/pages/certificate" class="nav-link"><i class="far fa-id-card"></i>  Create Certificate</a>
