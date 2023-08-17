@@ -121,7 +121,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="b_name">ชื่อ File</label>
-                                                <input type="text" class="form-control" id="b_name" placeholder="ชื่อ File" name="b_name">
+                                                <input type="text" class="form-control" id="b_name" placeholder="ชื่อ File" name="b_name" autofocus>
                                             </div>
                                         </div>
                                         <div class="col-md-12">

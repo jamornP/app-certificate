@@ -125,7 +125,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="ca_name">ชื่อเจ้าของลายเซ็นต์</label>
-                                                <input type="text" class="form-control" id="ca_name" placeholder="ชื่อเจ้าของลายเซ็นต์" name="ca_name">
+                                                <input type="text" class="form-control" id="ca_name" placeholder="ชื่อเจ้าของลายเซ็นต์" name="ca_name" autofocus>
                                             </div>
                                         </div>
                                         <div class="col-md-12">

@@ -125,7 +125,6 @@ class Mangement extends DbCertificate{
     public function addDataCertificate($data){
         $sql ="
             INSERT INTO tb_data_certificate(
-                dc_id,
                 b_name,
                 num,
                 name,
@@ -140,7 +139,19 @@ class Mangement extends DbCertificate{
                 event_date,
                 ca_name
             ) VALUES (
-            
+                :b_name,
+                :num,
+                :name,
+                :school,
+                :project,
+                :teacher,
+                :team,
+                :activity,
+                :level,
+                :award,
+                :event,
+                :event_date,
+                :ca_name
             )
         ";
         $stmt = $this->pdo->prepare($sql);

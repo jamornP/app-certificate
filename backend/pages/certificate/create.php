@@ -98,7 +98,7 @@
                                                     <div class="col-12">
                                                         <div class="form-group">
                                                             <label for="exampleInputEmail1">ชื่อ Folder</label>
-                                                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Folder name" name="folder" required>
+                                                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Folder name" name="folder" required autofocus>
                                                         </div>
                                                     </div>
                                                     <div class="col-12">

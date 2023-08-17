@@ -167,6 +167,7 @@
             }
         }
         if (isset($dataSt)) {
+            // ----------------------------------------------Data Add Batch------------------------------------------
             $dataB['num']=$_POST['batch_num'];
             $dataB['ba_name']=$_POST['batch_name'];
             $dataB['ba_date']=$_POST['batch_date'];
@@ -174,7 +175,6 @@
             $dataB['folder']=$_POST['folder'];
             $dataB['u_id']=1;
             $ck=$mangeObj->addBatch($dataB);
-            // echo $ck;
             // ที่เก็บ
             $dirf = "../../../upload/certificate/{$_POST['folder']}";
             if (is_dir($dirf)) {
@@ -307,12 +307,26 @@
                     'module_hight' => 1
                 ];
                 // QRCODE,M : QR-CODE Medium error correction
-                $pdf->write2DBarcode('http://161.246.13.61/app-certificate/upload/certificate/' . $folder . '/' . $filename, 'QRCODE,M', 5, 172, 30, 30, $style, 'N');
+                $pdf->write2DBarcode('http://sciserv01.sci.kmitl.ac.th/app-certificate/upload/certificate/' . $folder . '/' . $filename, 'QRCODE,M', 5, 172, 30, 30, $style, 'N');
 
                 //สร้าง pdf
                 $pdf->Output($fileNL, 'F');
                 // $pdf->write2DBarcode('http://sciserv01.sci.kmitl.ac.th/sci-certificate/', 'QRCODE,M', 10, 172, 30, 30, $style, 'N');
                 // $pdf->Output('preview.pdf', 'I');
+                $dataC['b_name']=$_POST['batch_name'];
+                $dataC['num']=$num;
+                $dataC['name']=$name;
+                $dataC['school']=$school;
+                $dataC['project']=$project;
+                $dataC['teacher']=$teacher;
+                $dataC['team']="";
+                $dataC['activity']=$activity;
+                $dataC['level']=$level;
+                $dataC['award']=$award;
+                $dataC['event']=$event;
+                $dataC['event_date']=$event_date;
+                $dataC['ca_name']=$ca_name;
+                $ckC = $mangeObj->addDataCertificate($dataC);
 
             }
             $pdf->Close();

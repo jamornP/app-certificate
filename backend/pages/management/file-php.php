@@ -130,7 +130,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="f_name">ชื่อ File PHP</label>
-                                                <input type="text" class="form-control" id="f_name" placeholder="ชื่อ File" name="f_name">
+                                                <input type="text" class="form-control" id="f_name" placeholder="ชื่อ File" name="f_name" autofocus>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
