@@ -31,7 +31,9 @@
                     if ($_FILES['ca']['error'] == 0) {
                         move_uploaded_file($_FILES['ca']['tmp_name'], $file_path);
                         $data['ca_name'] = $_POST['ca_name'];
-                        $data['ca_path'] = "/app-certificate/backend/images/ca/". $new_name;;
+                        $data['ca_path'] = "/app-certificate/backend/images/ca/". $new_name;
+                        $data['ca_position'] = $_POST['ca_position'];
+                        $data['ca_position2'] = $_POST['ca_position2'];
                         $data['status'] = 1;
                         // print_r($data);
                         $ck = $mangeObj->addca($data);
@@ -90,7 +92,9 @@
                                                 echo "
                                                     <div class='col-md-2 col-6 p-1'>
                                                         <img src='{$ca['ca_path']}' class='img-thumbnail shadow' alt='...'>
-                                                        <p class='text-center'>{$ca['ca_name']}</p>
+                                                        <p class='text-center' style='margin-bottom: 1px;'>{$ca['ca_name']}</p>
+                                                        <p class='text-center' style='font-size: 14px; margin-bottom: 0;'>{$ca['ca_position']}</p>
+                                                        <p class='text-center' style='font-size: 10px;'>{$ca['ca_position2']}</p>
                                                     </div>
                                                 ";
                                             }
@@ -120,8 +124,20 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="ca_name">ชื่อ File</label>
-                                                <input type="text" class="form-control" id="ca_name" placeholder="ชื่อ File" name="ca_name">
+                                                <label for="ca_name">ชื่อเจ้าของลายเซ็นต์</label>
+                                                <input type="text" class="form-control" id="ca_name" placeholder="ชื่อเจ้าของลายเซ็นต์" name="ca_name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="ca_position">ตำแหน่ง</label>
+                                                <input type="text" class="form-control" id="ca_position" placeholder="ตำแหน่ง" name="ca_position">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="ca_position2">สังกัด</label>
+                                                <input type="text" class="form-control" id="ca_position2" placeholder="สังกัด" name="ca_position2">
                                             </div>
                                         </div>
                                         <div class="col-md-12">

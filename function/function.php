@@ -371,4 +371,7 @@ function btStatusIT($data){
     }
     return $s;
 }
+function BatchName($data){
+    return sprintf("%07d",$data+1);
+}
 ?>

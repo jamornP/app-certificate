@@ -12,7 +12,7 @@ $pdf->SetMargins(0, 0, 0, 0);
 $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 $i++;
 // ข้อมูล
-$bg = "sciday2022-bronze.png";
+$bg = "non-bg.png";
 $name = "ชื่อ นามสกุล";
 $school = "โรงเรียน";
 $award = "ได้รับรางวัล ";

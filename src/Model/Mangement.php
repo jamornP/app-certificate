@@ -46,10 +46,14 @@ class Mangement extends DbCertificate{
             INSERT INTO tb_ca(
                 ca_name,
                 ca_path,
+                ca_position,
+                ca_position2,
                 status
             ) VALUES (
                 :ca_name,
                 :ca_path,
+                :ca_position,
+                :ca_position2,
                 :status
             )
         ";
@@ -115,6 +119,72 @@ class Mangement extends DbCertificate{
         $stmt = $this->pdo->query($sql);
         $data = $stmt->fetchAll();
         return $data[0];
+    }
+
+    // Data Certificate
+    public function addDataCertificate($data){
+        $sql ="
+            INSERT INTO tb_data_certificate(
+                dc_id,
+                b_name,
+                num,
+                name,
+                school,
+                project,
+                teacher,
+                team,
+                activity,
+                level,
+                award,
+                event,
+                event_date,
+                ca_name
+            ) VALUES (
+            
+            )
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($data);
+        return $this->pdo->lastInsertId();
+    }
+
+    // Batch
+    public function addBatch($data){
+        $sql = "
+            INSERT INTO tb_batch(
+                num,
+                ba_name,
+                ba_date,
+                activity_name,
+                folder,
+                u_id
+            ) VALUES (
+                :num,
+                :ba_name,
+                :ba_date,
+                :activity_name,
+                :folder,
+                :u_id
+            )
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($data);
+        return $this->pdo->lastInsertId();
+    }
+    public function getBatchName(){
+        $sql ="
+            SELECT num
+            FROM tb_batch
+            ORDER BY num DESC
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        if(count($data) > 0 ){
+            return $data[0];
+        }else{
+            return 0;
+        }
+        
     }
 }
 ?>

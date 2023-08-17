@@ -159,7 +159,13 @@
                                                                     <div class='icheck-success d-inline'>
                                                                         <input type='radio' id='ca{$i}' name='ca' value='{$ca['ca_id']}' checked>  
                                                                         <label for='ca{$i}'>
-                                                                            {$ca['ca_name']} <a href='{$ca['ca_path']}' target='_bank'><i class='nav-icon fas fa-eye'></i></a>
+                                                                            <div  class='text-center'>
+                                                                                <p class='text-center' style='margin-bottom: 1px;'>{$ca['ca_name']}</p>
+                                                                                <p class='text-center' style='font-size: 14px; margin-bottom: 0;'>{$ca['ca_position']}</p>
+                                                                                <p class='text-center' style='font-size: 10px;'>{$ca['ca_position2']}</p>
+                                                                                <a href='{$ca['ca_path']}'  target='_bank'><i class='nav-icon fas fa-eye'></i> preview</a>
+                                                                            </div>
+                                                                            
                                                                         </label>
                                                                     </div>
                                                                 </div>
@@ -191,7 +197,6 @@
                                                                     </div>
                                                                     <p class='text-center'><a href='{$f['f_img']}' target='_bank'><i class='nav-icon fas fa-eye'></i> preview</a></p>
                                                                 </div>
-                                                                
                                                             </div>
                                                         ";
                                                         }
@@ -208,54 +213,7 @@
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <table class="table">
-                                        <tbody>
-                                            <tr>
-                                                <?php
-                                                if (isset($_POST['read']) && $_FILES['excel']['error'] == 0) {
-                                                    require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/lib/PHPExcel/Classes/PHPExcel.php");
-                                                    $tmpFile = $_FILES['excel']['tmp_name'];
-                                                    $objPHPExcel = PHPExcel_IOFactory::load($tmpFile);
-                                                    $cell_collection = $objPHPExcel->getActiveSheet()->getCellCollection();
-                                                    function get($c)
-                                                    {
-                                                        $k = array("A" => "num", "B" => "project", "C" => "school", "D" => "level", "E" => "student", "F" => "teacher");
-                                                        return $k[$c];
-                                                    }
-
-                                                    $i = 1;
-                                                    $j = 0;
-                                                    foreach ($cell_collection as $cell) {
-
-                                                        // ค่าสำหรับดูว่าเป็นคอลัมน์ไหน เช่น A B C ....
-                                                        $column = $objPHPExcel->getActiveSheet()->getCell($cell)->getColumn();
-                                                        // คำสำหรับดูว่าเป็นแถวที่เท่าไหร่ เช่น 1 2 3 .....
-                                                        $row = $objPHPExcel->getActiveSheet()->getCell($cell)->getRow();
-                                                        // ค่าของข้อมูลในเซลล์นั้นๆ เช่น A1 B1 C1 ....
-                                                        $data_value = $objPHPExcel->getActiveSheet()->getCell($cell)->getValue();
-
-                                                        if ($i == (int)$row) {
-                                                            if ($j == 0) {
-                                                                echo "<th>{$data_value}</th>";
-                                                            } else {
-                                                                $col = get($column);
-                                                                echo "<td>{$data_value}</td>";
-                                                                $dataSt[$j][$col] = $data_value;
-                                                            }
-                                                        } else {
-                                                            echo "</tr>";
-                                                            $i++;
-                                                            $j++;
-                                                            echo "<tr><td>{$j}</td>";
-                                                            $col = get($column);
-                                                            $dataSt[$j][$col] = $j;
-                                                        }
-                                                    }
-                                                }
-                                                
-                                                ?>
-                                        </tbody>
-                                    </table>
+                                    
                                 </div>
                             </div>
 
