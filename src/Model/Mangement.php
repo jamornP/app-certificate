@@ -180,9 +180,11 @@ class Mangement extends DbCertificate{
         $stmt = $this->pdo->query($sql);
         $data = $stmt->fetchAll();
         if(count($data) > 0 ){
-            return $data[0];
+            $num = $data[0]['num'];
+            return $num;
         }else{
-            return 0;
+            $num = 0;
+            return $num;
         }
         
     }
