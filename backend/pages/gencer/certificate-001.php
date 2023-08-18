@@ -165,9 +165,9 @@
                     $dataSt[$j][$col] = $j;
                 }
             }
-            // echo "<pre>";
-            // print_r($dataSt);
-            // echo "</pre>";
+            echo "<pre>";
+            print_r($dataSt);
+            echo "</pre>";
             
         }
         if (isset($dataSt)) {
@@ -336,7 +336,6 @@
             }
             $pdf->Close();
             header("location: /app-certificate/backend/pages/certificate/");
-            exit(0);
         }
     }
 ?>

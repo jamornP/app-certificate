@@ -59,11 +59,11 @@
                                             <div class='col-lg-2 col-md-4 col-4 p-1'>
                                                 <div class='form-group clearfix'>
                                                     <div class='icheck-success d-inline'>
-                                                        
                                                         <label for='f{$i}'>
                                                             <img src='{$f['f_img']}' class='img-thumbnail shadow' alt='...' >
                                                         </label>
                                                     </div>
+                                                    <p class='text-center'>{$f['f_name']}</p>
                                                     <p class='text-center'><a href='{$f['f_img']}' target='_bank'><i class='nav-icon fas fa-eye'></i> preview</a></p>
                                                     <p class='text-center'><a class='btn btn-info' href='{$f['f_excel']}?f_name={$new_name}&sh_name=data'><i class='nav-icon fas fa-download'></i> Download</a></p>
                                                 </div>
