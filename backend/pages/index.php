@@ -55,7 +55,8 @@
                                             <th>Date</th>
                                             <th>Activity Name</th>
                                             <th>Folder</th>
-                                            <th>Count Certificate</th>
+                                            <th>Count</th>
+                                            <th>Time</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -65,6 +66,7 @@
                                             foreach($data as $ba){
                                                 $countC = $mangeObj->getDataCerByBatch("count",$ba['ba_name']);
                                                 $dateB = datethai_time($ba['ba_date']);
+                                                $time = time_dif_TH($ba['ba_start'],$ba['ba_end']);
                                                 echo "
                                                     <tr>
                                                         <td><a href='/app-certificate/backend/pages/batch-data.php?ba={$ba['ba_name']}'>{$ba['ba_name']}</a></td>
@@ -72,6 +74,7 @@
                                                         <td>{$ba['activity_name']}</td>
                                                         <td>{$ba['folder']}</td>
                                                         <td>{$countC}</td>
+                                                        <td>{$time}</td>
                                                     </tr>
                                                 
                                                 ";

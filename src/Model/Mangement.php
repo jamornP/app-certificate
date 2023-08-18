@@ -185,6 +185,8 @@ class Mangement extends DbCertificate{
                 ba_date,
                 activity_name,
                 folder,
+                ba_start,
+                ba_end,
                 u_id
             ) VALUES (
                 :num,
@@ -192,6 +194,8 @@ class Mangement extends DbCertificate{
                 :ba_date,
                 :activity_name,
                 :folder,
+                :ba_start,
+                :ba_end,
                 :u_id
             )
         ";
