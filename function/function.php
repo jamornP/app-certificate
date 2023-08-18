@@ -207,7 +207,7 @@ function time_dif_TH($begin,$end){
     }elseif($second >0){
         $data = $second." วินาที";
     }else{
-        $data= "Now";
+        $data= "0 วินาที";
     }
 	return $data;
 }

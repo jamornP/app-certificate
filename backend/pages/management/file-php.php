@@ -169,10 +169,10 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="excel">File PHP Export Excel</label>
+                                                <label for="excel">File Excel</label>
                                                 <div class="input-group">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="excel" accept=".php" name="f_excel" required>
+                                                        <input type="file" class="custom-file-input" id="excel" accept=".xls,.xlsx,.csv" name="f_excel" required>
                                                         <label class="custom-file-label" for="excel">Choose file</label>
                                                     </div>
                                                 </div>

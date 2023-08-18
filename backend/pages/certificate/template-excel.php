@@ -65,7 +65,7 @@
                                                     </div>
                                                     <p class='text-center'>{$f['f_name']}</p>
                                                     <p class='text-center'><a href='{$f['f_img']}' target='_bank'><i class='nav-icon fas fa-eye'></i> preview</a></p>
-                                                    <p class='text-center'><a class='btn btn-info' href='{$f['f_excel']}?f_name={$new_name}&sh_name=data'><i class='nav-icon fas fa-download'></i> Download</a></p>
+                                                    <p class='text-center'><a class='btn btn-info' href='{$f['f_excel']}'><i class='nav-icon fas fa-download'></i> Download</a></p>
                                                 </div>
                                             </div>
                                         ";
