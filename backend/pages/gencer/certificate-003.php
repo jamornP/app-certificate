@@ -18,30 +18,30 @@
         $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
         $i++;
         // ข้อมูล
-        $bg = "non-bg.png";
-        $name = "นายจามร เพ็งสวย";
-        $school = "โรงเรียน KMITL";
-        $award = "ได้รับรางวัล ชนะเลิศอันดับที่ ๑";
-        $activity = "การแข่งขันตอบปัญหาความรู้ทั่วไปทางวิทยาศาสตร์ ภาษาไทย";
+        $bg = $_POST['bg'];
+        $name = "ชื่อ นามสกุล";
+        $school = "โรงเรียน";
+        $team = "ทีม " . "";
+        $award = "ได้รับรางวัล ";
+        $activity = "การแข่งขัน ";
         $level = "";
         $date_at = datethaifull(date("Y-m-d"));
         $project = "";
         $teacher = "";
         $event = "นิทรรศการวันวิทยาสาสตร์ Science today is Technology Tomorrow";
         $event_date = "ระหว่างวันที่ 4 - 5 สิงหาคม พ.ศ.2566";
-        $ca = "su.png";
-        $ca_name = "รองศาสตราจารย์ ดร.สุธี ชุติไพจิตร";
-        $ca_position = "คณบดี คณะวิทยาศาสตร์";
-        $ca_position2 = "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง";
-
+        $ca = $_POST['ca'];
+        $ca_name = $_POST['ca_name'];
+        $ca_position = $_POST['ca_position'];
+        $ca_position2 = $_POST['ca_position2'];
 
 
         $pdf->AddPage();
         $pdf->setAutoPageBreak(false, 0);
         // พื้นหลัง
-        $pdf->Image($_SERVER['DOCUMENT_ROOT'] . 'project/backend/images/bg/' . $bg, 0, 0, 0, 210, '', '', '', false, 150, '', false, false, 0);
+        $pdf->Image($_SERVER['DOCUMENT_ROOT'] . $bg, 0, 0, 0, 210, '', '', '', false, 150, '', false, false, 0);
         // ลายเซ็นต์
-        $pdf->Image($_SERVER['DOCUMENT_ROOT'] . 'project/backend/images/ca/' . $ca, 110, 142, 0, 50, '', '', '', false, 300, '', false, false, 0);
+        $pdf->Image($_SERVER['DOCUMENT_ROOT'] . $ca, 110, 142, 0, 50, '', '', '', false, 300, '', false, false, 0);
         // หัวเรื่อง
         $pdf->setFont('thsarabun', 'B');
         $pdf->setTextColor(0, 98, 133);
