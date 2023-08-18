@@ -50,7 +50,7 @@
                             <div class="card-body">
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
-                                        <tr>
+                                        <tr class='fs-12'>
                                             <th>#</th>
                                             <th>Batch Name</th>
                                             <th>Name</th>
@@ -68,14 +68,14 @@
                                                 // $countC = $mangeObj->getDataCerByBatch("count",$ba['ba_name']);
                                                 // $dateB = datethai_time($ba['ba_date']);
                                                 echo "
-                                                    <tr>
+                                                    <tr class='fs-14'>
                                                         <td>{$st['num']}</td>
-                                                        <td>{$st['ba_name']}</td>
+                                                        <td class='fs-12'>{$st['ba_name']}</td>
                                                         <td><a href='{$st['link']}' target='_bank'>{$st['name']}</a></td>
-                                                        <td>{$st['school']}</td>
-                                                        <td>{$st['activity']}</td>
-                                                        <td>{$st['award']}</td>
-                                                        <td>{$st['event']}</td>
+                                                        <td class='fs-12'>{$st['school']}</td>
+                                                        <td class='fs-12'>{$st['activity']}</td>
+                                                        <td class='fs-12'>{$st['award']}</td>
+                                                        <td class='fs-12'>{$st['event']}</td>
                                                     </tr>
                                                 
                                                 ";

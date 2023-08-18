@@ -19,6 +19,8 @@
 <!-- Font Awesome -->
 <link rel="stylesheet" href="/app-certificate/plugins/fontawesome-free/css/all.min.css">
 
+<!-- Fonts -->
+<link rel="stylesheet" href="/app-certificate/css/font.css">
 <!-- summernote -->
 <link rel="stylesheet" href="/app-certificate/plugins/summernote/summernote-bs4.min.css">
 

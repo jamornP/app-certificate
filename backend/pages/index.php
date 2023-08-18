@@ -59,7 +59,7 @@
                                             <th>Time</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody class="">
                                         <?php
                                             $data = $mangeObj->getBatchAll();
                                             // print_r($data);
@@ -68,7 +68,7 @@
                                                 $dateB = datethai_time($ba['ba_date']);
                                                 $time = time_dif_TH($ba['ba_start'],$ba['ba_end']);
                                                 echo "
-                                                    <tr>
+                                                    <tr class=''>
                                                         <td><a href='/app-certificate/backend/pages/batch-data.php?ba={$ba['ba_name']}'>{$ba['ba_name']}</a></td>
                                                         <td>{$dateB}</td>
                                                         <td>{$ba['activity_name']}</td>
