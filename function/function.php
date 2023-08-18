@@ -374,4 +374,7 @@ function btStatusIT($data){
 function BatchName($data){
     return sprintf("%07d",$data+1);
 }
+function FolderName($data){
+    return sprintf("%03d",$data+1);
+}
 ?>

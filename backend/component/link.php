@@ -66,14 +66,14 @@
         window.location.href = url;
       }
       toastr.success(massage, 'Success', {
-        timeOut: 1000
+        timeOut: 500
       })
     })
   }
   function alertError(massage) {
     $(function() {
       toastr.error(massage, 'Error', {
-        timeOut: 1000
+        timeOut: 500
       })
     })
   }

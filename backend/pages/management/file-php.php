@@ -24,7 +24,10 @@
                 // print_r($_FILES['file-php']);
                 // echo "<br>";
                 // print_r($_FILES['f_img']);
+                // echo "<br>";
                 // print_r($_POST);
+                // echo "<br>";
+                // print_r($_FILES['f_excel']);
                 if (isset($_FILES['file-php']['tmp_name'])) {
                     $ext = (explode(".", $_FILES['file-php']['name']));
                     $new_name = $_POST['f_name'] . "." . $ext[1];
@@ -39,19 +42,28 @@
                             $file_path2 = $_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/images/example/" . $new_name2;
                             if ($_FILES['f_img']['error'] == 0) {
                                 move_uploaded_file($_FILES['f_img']['tmp_name'], $file_path2);
-                                $data['f_img'] = "/app-certificate/backend/images/example/" . $new_name2;;
-                                $data['status'] = 1;
-                                $ck = $mangeObj->addPHP($data);
-                                if ($ck) {
-                                    $msg = "บันทึกข้อมูลสำเร็จ";
-                                    echo "<script>";
-                                    echo "alertSuccess('{$msg}','file-php.php')";
-                                    echo "</script>";
-                                } else {
-                                    $msg = "บันทึกข่อมูลไม่สำเร็จ";
-                                    echo "<script>";
-                                    echo "alertError('{$msg}','file-php.php')";
-                                    echo "</script>";
+                                $data['f_img'] = "/app-certificate/backend/images/example/" . $new_name2;
+                                if (isset($_FILES['f_excel']['tmp_name'])) {
+                                    $ext3 = (explode(".", $_FILES['f_excel']['name']));
+                                    $new_name3 = "excel-".$_POST['f_name'] . "." . $ext3[1];
+                                    $file_path3 = $_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/pages/excel/" . $new_name3;
+                                    if ($_FILES['f_excel']['error'] == 0) {
+                                        move_uploaded_file($_FILES['f_excel']['tmp_name'], $file_path3);
+                                        $data['f_excel'] = "/app-certificate/backend/pages/excel/" . $new_name3;
+                                        $data['status'] = 1;
+                                        $ck = $mangeObj->addPHP($data);
+                                        if ($ck) {
+                                            $msg = "บันทึกข้อมูลสำเร็จ";
+                                            echo "<script>";
+                                            echo "alertSuccess('{$msg}','file-php.php')";
+                                            echo "</script>";
+                                        } else {
+                                            $msg = "บันทึกข่อมูลไม่สำเร็จ";
+                                            echo "<script>";
+                                            echo "alertError('{$msg}','file-php.php')";
+                                            echo "</script>";
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -130,7 +142,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="f_name">ชื่อ File PHP</label>
-                                                <input type="text" class="form-control" id="f_name" placeholder="ชื่อ File" name="f_name" autofocus>
+                                                <input type="text" class="form-control" id="f_name" placeholder="ชื่อ File" name="f_name" autofocus required>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
@@ -138,7 +150,7 @@
                                                 <label for="filePHP">File PHP</label>
                                                 <div class="input-group">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="filePHP" accept=".php" name="file-php">
+                                                        <input type="file" class="custom-file-input" id="filePHP" accept=".php" name="file-php" required>
                                                         <label class="custom-file-label" for="filePHP">Choose file</label>
                                                     </div>
                                                 </div>
@@ -149,8 +161,19 @@
                                                 <label for="img">รูปแบบ Certificate</label>
                                                 <div class="input-group">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="img" accept=".png, .jpg" name="f_img">
+                                                        <input type="file" class="custom-file-input" id="img" accept=".png, .jpg" name="f_img" required>
                                                         <label class="custom-file-label" for="img">Choose file</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="excel">File PHP Export Excel</label>
+                                                <div class="input-group">
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="excel" accept=".php" name="f_excel" required>
+                                                        <label class="custom-file-label" for="excel">Choose file</label>
                                                     </div>
                                                 </div>
                                             </div>

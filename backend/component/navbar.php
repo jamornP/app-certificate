@@ -19,6 +19,9 @@ date_default_timezone_set('Asia/Bangkok');
         <li class="nav-item d-none d-sm-inline-block">
             <a href="/app-certificate/backend/pages/certificate" class="nav-link"><i class="far fa-id-card"></i>  Create Certificate</a>
         </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/app-certificate/backend/pages/certificate/template-excel.php" class="nav-link"><i class="far fa-file-excel"></i>  Themplate Excel</a>
+        </li>
     </ul>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item ">

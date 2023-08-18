@@ -88,11 +88,13 @@ class Mangement extends DbCertificate{
                 f_name,
                 f_path,
                 f_img,
+                f_excel,
                 status
             ) VALUES (
                 :f_name,
                 :f_path,
                 :f_img,
+                :f_excel,
                 :status
             )
         ";

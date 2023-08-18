@@ -88,7 +88,7 @@
                                                             <label for="excel">File รายชื่อ </label>
                                                             <div class="input-group">
                                                                 <div class="custom-file">
-                                                                    <input type="file" class="custom-file-input" id="excel" accept=".xls, .xlsx, .csv" name="excel">
+                                                                    <input type="file" class="custom-file-input" id="excel" accept=".xls, .xlsx, .csv" name="excel" autofocus>
                                                                     <label class="custom-file-label" for="excel">Choose file</label>
 
                                                                 </div>
@@ -97,16 +97,21 @@
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="form-group">
-                                                            <label for="exampleInputEmail1">ชื่อ Folder</label>
-                                                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Folder name" name="folder" required autofocus>
+                                                            <label for="activity_name">ชื่อ กิจกรรม</label>
+                                                            <input type="text" class="form-control" id="activity_name" placeholder="Activity name" name="activity_name" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="form-group">
-                                                            <label for="activity_name">ชื่อ กิจกรรม</label>
-                                                            <input type="text" class="form-control" id="activity_name" placeholder="Activiti name" name="activity_name" required>
+                                                            <label for="exampleInputEmail1">ชื่อ Folder</label>
+                                                            <?php 
+                                                                $num = $mangeObj->getBatchName();
+                                                                $folder_name = FolderName($num);
+                                                            ?>
+                                                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Folder name" name="folder" value="<?php echo $folder_name;?>" readonly>
                                                         </div>
                                                     </div>
+                                                    
                                                     <div class="col-12">
                                                         <div class="form-group">
                                                             <label for="batch">batch number</label>
