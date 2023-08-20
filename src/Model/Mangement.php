@@ -176,6 +176,17 @@ class Mangement extends DbCertificate{
             return $data;
         }
     }
+    public function getCertificate($name){
+        $sql = "
+            SELECT *
+            FROM tb_data_certificate
+            WHERE name LIKE '%{$name}%'
+            ORDER BY name
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
     // Batch
     public function addBatch($data){
         $sql = "
