@@ -2,7 +2,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="/app-certificate" class="brand-link">
       <img src="/app-certificate/backend/images/logo/logo-white.png" alt="Science Logo" class="" style="display:table; margin: 0 auto; max-width:200px;">
         <span class="brand-text font-weight-light"></span>
     </a>
