@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,18 +22,7 @@
 
 
         <div class="content-wrapper">
-            <?php
-            // print_r($_POST);
-            // echo "<br>";
-            // print_r($_FILES);
-
-            if (isset($_POST['submit'])) {
-                print_r($_POST);
-                echo "<br>";
-               
-            }
-
-            ?>
+           
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
@@ -49,6 +39,7 @@
                 </div>
             </div>
             <section class="content">
+            
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">

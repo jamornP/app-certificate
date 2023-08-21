@@ -7,7 +7,7 @@
     $mangeObj = new Mangement;
     date_default_timezone_set('Asia/Bangkok');
     // review certificate===========================================
-    // if (isset($_POST['review'])) {
+    if (isset($_POST['review'])) {
 
         $i = 0;
 
@@ -129,7 +129,7 @@
         $pdf->write2DBarcode('http://sciserv01.sci.kmitl.ac.th/science/sciday/2023', 'QRCODE,M', 10, 172, 30, 30, $style, 'N');
         $pdf->Output('preview.pdf', 'I');
         $pdf->Close();
-    // }
+    }
     // Gen certificate file =====================================================
     if (isset($_POST['submit'])) {
         if ($_FILES['excel']['error'] == 0) {

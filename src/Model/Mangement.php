@@ -1,4 +1,6 @@
 <?php
+
+
 namespace App\Model;
 use App\Database\DbCertificate;
 
@@ -242,6 +244,30 @@ class Mangement extends DbCertificate{
         $stmt = $this->pdo->query($sql);
         $data = $stmt->fetchAll();
         return $data;
+    }
+
+    // User
+    public function getUser($email,$img){
+        $sql ="
+            SELECT * 
+            FROM tb_user
+            WHERE u_email = '{$email}'
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        if(count($data)>0){
+        session_start();
+        $_SESSION['certificate-login']=true;
+        $_SESSION['u_id']=$data[0]['u_id'];
+        $_SESSION['u_email']=$data[0]['u_email'];
+        $_SESSION['u_name']=$data[0]['u_name'];
+        $_SESSION['role']=$data[0]['role'];
+        $_SESSION['img']=$img;
+        
+        return $data[0];
+        }else{
+            return false;
+        }
     }
 }
 ?>
