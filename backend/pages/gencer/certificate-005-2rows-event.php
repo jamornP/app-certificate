@@ -28,8 +28,9 @@
         $date_at = datethaifull(date("Y-m-d"));
         $project = "";
         $teacher = "";
-        $event = 'นิทรรศการวันวิทยาศาสตร์ "Science Today is Technology Tomorrow"';
-        $event_date = "ระหว่างวันที่ 4 - 5 สิงหาคม พ.ศ. 2566";
+        $event = "นิทรรศการวันวิทยาศาสตร์ ประจำปี 2566";
+        $event2 = '"Science Today is Technology Tomorrow"';
+        $event_date = "ระหว่างวันที่ 4 - 5 สิงหาคม พ.ศ.2566";
         $ca = $_POST['ca'];
         $ca_name = $_POST['ca_name'];
         $ca_position = $_POST['ca_position'];
@@ -79,18 +80,23 @@
         $pdf->setFont('thsarabun', '');
         $pdf->setTextColor(40, 46, 75);
         $pdf->setFontSize(24);
-        $pdf->MultiCell(0, 0, $activity . ' ' . $level, 0, 'C', 0, 1, 0, 122);
+        $pdf->MultiCell(0, 0, $activity . ' ' . $level, 0, 'C', 0, 1, 0, 118);
 
         // ชื่องาน
         $pdf->setFont('thsarabun', 'B');
         $pdf->setTextColor(40, 46, 75);
         $pdf->setFontSize(24);
-        $pdf->MultiCell(0, 0, $event, 0, 'C', 0, 1, 0, 137);
+        $pdf->MultiCell(0, 0, $event, 0, 'C', 0, 1, 0, 132);
+        // ชื่องาน
+        $pdf->setFont('thsarabun', 'B');
+        $pdf->setTextColor(40, 46, 75);
+        $pdf->setFontSize(24);
+        $pdf->MultiCell(0, 0, $event2, 0, 'C', 0, 1, 0, 139);
         // วันที่จัดงาน
         $pdf->setFont('thsarabun', 'B');
         $pdf->setTextColor(40, 46, 75);
         $pdf->setFontSize(20);
-        $pdf->MultiCell(0, 0, $event_date, 0, 'C', 0, 1, 0, 146);
+        $pdf->MultiCell(0, 0, $event_date, 0, 'C', 0, 1, 0, 147);
 
         // CA
         $pdf->setFont('thsarabun', '');
@@ -129,7 +135,7 @@
             $cell_collection = $objPHPExcel->getActiveSheet()->getCellCollection();
             function get($c)
             {
-                $k = array("A" => "num", "B" => "student", "C" => "school", "D" => "team", "E" => "activity", "F" => "award", "G" => "event", "H" => "event_date","I"=>"pro_id");
+                $k = array("A" => "num", "B" => "student", "C" => "school", "D" => "team", "E" => "activity", "F" => "award", "G" => "event", "H"=>"event2", "I" => "event_date","J"=>"pro_id");
                 return $k[$c];
             }
 
@@ -206,6 +212,7 @@
                 $project = "";
                 $teacher = "";
                 $event = $st['event'];
+                $event2 = $st['event2'];
                 $event_date = $st['event_date'];
                 $ca = $_POST['ca'];
                 $ca_name = $_POST['ca_name'];
@@ -262,12 +269,17 @@
                 $pdf->setFont('thsarabun', 'B');
                 $pdf->setTextColor(40, 46, 75);
                 $pdf->setFontSize(24);
-                $pdf->MultiCell(0, 0, $event, 0, 'C', 0, 1, 0, 137);
+                $pdf->MultiCell(0, 0, $event, 0, 'C', 0, 1, 0, 132);
+                // ชื่องาน
+                $pdf->setFont('thsarabun', 'B');
+                $pdf->setTextColor(40, 46, 75);
+                $pdf->setFontSize(24);
+                $pdf->MultiCell(0, 0, $event2, 0, 'C', 0, 1, 0, 139);
                 // วันที่จัดงาน
                 $pdf->setFont('thsarabun', 'B');
                 $pdf->setTextColor(40, 46, 75);
                 $pdf->setFontSize(20);
-                $pdf->MultiCell(0, 0, $event_date, 0, 'C', 0, 1, 0, 146);
+                $pdf->MultiCell(0, 0, $event_date, 0, 'C', 0, 1, 0, 147);
 
                 // CA
                 $pdf->setFont('thsarabun', '');

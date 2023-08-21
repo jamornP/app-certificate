@@ -140,7 +140,8 @@ class Mangement extends DbCertificate{
                 event,
                 event_date,
                 ca_name,
-                link
+                link,
+                pro_id
             ) VALUES (
                 :ba_name,
                 :num,
@@ -155,7 +156,8 @@ class Mangement extends DbCertificate{
                 :event,
                 :event_date,
                 :ca_name,
-                :link
+                :link,
+                :pro_id
             )
         ";
         $stmt = $this->pdo->prepare($sql);

@@ -6,8 +6,9 @@
     use App\Model\Mangement;
     $mangeObj = new Mangement;
     date_default_timezone_set('Asia/Bangkok');
-    // Review Certificate     ========================
-    if (isset($_POST['review'])) {
+    // review certificate===========================================
+    // if (isset($_POST['review'])) {
+
         $i = 0;
 
         $pdf = new TCPDF("L", "mm", "A4", true, 'UTF-8', false);
@@ -21,14 +22,14 @@
         $bg = $_POST['bg'];
         $name = "ชื่อ นามสกุล";
         $school = "โรงเรียน";
-        $team = "ทีม " . "";
         $award = "ได้รับรางวัล ";
-        $activity = "การแข่งขัน ";
-        $level = "";
+        $activity = "กิจกรรม";
+        $level = "ระดับ";
         $date_at = datethaifull(date("Y-m-d"));
-        $project = "";
-        $teacher = "";
-        $event = 'นิทรรศการวันวิทยาศาสตร์ "Science Today is Technology Tomorrow"';
+        $project = "ชื่อผลงาน";
+        $teacher = "ครูที่ปรึกษา";
+        $event = "นิทรรศการวันวิทยาศาสตร์ ประจำปี 2566";
+        $event2 = '"Science Today is Technology Tomorrow"';
         $event_date = "ระหว่างวันที่ 4 - 5 สิงหาคม พ.ศ. 2566";
         $ca = $_POST['ca'];
         $ca_name = $_POST['ca_name'];
@@ -40,9 +41,9 @@
         $pdf->AddPage();
         $pdf->setAutoPageBreak(false, 0);
         // พื้นหลัง
-        $pdf->Image($_SERVER['DOCUMENT_ROOT'] .  $bg, 0, 0, 0, 210, '', '', '', false, 150, '', false, false, 0);
+        $pdf->Image($_SERVER['DOCUMENT_ROOT'] . $bg, 0, 0, 0, 210, '', '', '', false, 150, '', false, false, 0);
         // ลายเซ็นต์
-        $pdf->Image($_SERVER['DOCUMENT_ROOT'] .  $ca, 110, 142, 0, 50, '', '', '', false, 300, '', false, false, 0);
+        $pdf->Image($_SERVER['DOCUMENT_ROOT'] . $ca, 110, 142, 0, 50, '', '', '', false, 300, '', false, false, 0);
         // หัวเรื่อง
         $pdf->setFont('thsarabun', 'B');
         $pdf->setTextColor(0, 98, 133);
@@ -65,32 +66,41 @@
         $pdf->setTextColor(40, 46, 75);
         $pdf->setFontSize(20);
         $pdf->MultiCell(0, 0, $school, 0, 'C', 0, 1, 0, 82);
-        // ทีม
-        $pdf->setFont('thsarabun', '');
-        $pdf->setTextColor(40, 46, 75);
-        $pdf->setFontSize(20);
-        $pdf->MultiCell(0, 0, $team, 0, 'C', 0, 1, 0, 89);
         // รางวัล
         $pdf->setFont('thsarabun', 'B');
         $pdf->setTextColor(40, 46, 75);
         $pdf->setFontSize(30);
-        $pdf->MultiCell(0, 0, $award, 0, 'C', 0, 1, 0, 103);
+        $pdf->MultiCell(0, 0, $award, 0, 'C', 0, 1, 0, 93);
         // รายการแข่ง
         $pdf->setFont('thsarabun', '');
         $pdf->setTextColor(40, 46, 75);
         $pdf->setFontSize(24);
-        $pdf->MultiCell(0, 0, $activity . ' ' . $level, 0, 'C', 0, 1, 0, 122);
-
+        $pdf->MultiCell(0, 0, $activity . ' ' . $level, 0, 'C', 0, 1, 0, 108);
+        // ชื่อผลงาน
+        $pdf->setFont('thsarabun', '');
+        $pdf->setTextColor(40, 46, 75);
+        $pdf->setFontSize(20);
+        $pdf->MultiCell(0, 0, $project, 0, 'C', 0, 1, 0, 117);
+        // ชื่ออาจารย์ที่ปรึกษา
+        $pdf->setFont('thsarabun', '');
+        $pdf->setTextColor(40, 46, 75);
+        $pdf->setFontSize(18);
+        $pdf->MultiCell(0, 0, $teacher, 0, 'C', 0, 1, 0, 125);
         // ชื่องาน
         $pdf->setFont('thsarabun', 'B');
         $pdf->setTextColor(40, 46, 75);
         $pdf->setFontSize(24);
-        $pdf->MultiCell(0, 0, $event, 0, 'C', 0, 1, 0, 137);
+        $pdf->MultiCell(0, 0, $event, 0, 'C', 0, 1, 0, 132);
+        // ชื่องาน
+        $pdf->setFont('thsarabun', 'B');
+        $pdf->setTextColor(40, 46, 75);
+        $pdf->setFontSize(24);
+        $pdf->MultiCell(0, 0, $event2, 0, 'C', 0, 1, 0, 139);
         // วันที่จัดงาน
         $pdf->setFont('thsarabun', 'B');
         $pdf->setTextColor(40, 46, 75);
         $pdf->setFontSize(20);
-        $pdf->MultiCell(0, 0, $event_date, 0, 'C', 0, 1, 0, 146);
+        $pdf->MultiCell(0, 0, $event_date, 0, 'C', 0, 1, 0, 147);
 
         // CA
         $pdf->setFont('thsarabun', '');
@@ -119,8 +129,8 @@
         $pdf->write2DBarcode('http://sciserv01.sci.kmitl.ac.th/science/sciday/2023', 'QRCODE,M', 10, 172, 30, 30, $style, 'N');
         $pdf->Output('preview.pdf', 'I');
         $pdf->Close();
-    }
-    // Gen Certificate ==============================
+    // }
+    // Gen certificate file =====================================================
     if (isset($_POST['submit'])) {
         if ($_FILES['excel']['error'] == 0) {
             require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/lib/PHPExcel/Classes/PHPExcel.php");
@@ -129,12 +139,13 @@
             $cell_collection = $objPHPExcel->getActiveSheet()->getCellCollection();
             function get($c)
             {
-                $k = array("A" => "num", "B" => "student", "C" => "school", "D" => "team", "E" => "activity", "F" => "award", "G" => "event", "H" => "event_date","I"=>"pro_id");
+                $k = array("A" => "num", "B" => "student", "C" => "school", "D" => "project", "E" => "teacher", "F" => "activity", "G" => "level", "H" => "award", "I" => "event", "J" => "event2","K"=>"event_date","L"=>"pro_id");
                 return $k[$c];
             }
 
             $i = 1;
             $j = 0;
+            
             foreach ($cell_collection as $cell) {
 
                 // ค่าสำหรับดูว่าเป็นคอลัมน์ไหน เช่น A B C ....
@@ -164,6 +175,7 @@
             // echo "<pre>";
             // print_r($dataSt);
             // echo "</pre>";
+            
         }
         if (isset($dataSt)) {
             // ----------------------------------------------Data Add Batch------------------------------------------
@@ -174,13 +186,12 @@
             $dataB['activity_name']=$_POST['activity_name'];
             $dataB['folder']=$_POST['folder'];
             $dataB['u_id']=$_SESSION['u_id'];
-            
+
             // ที่เก็บ
             $dirf = "../../../upload/certificate/{$_POST['folder']}";
             if (is_dir($dirf)) {
             } else {
                 mkdir("$dirf", 0777);
-                // $ck = $personObj->addGenCer($_POST['folder'], "สมาคมวิทยาศาสตร์");
             }
 
             $i = 0;
@@ -198,14 +209,14 @@
                 $num = $st['num'];
                 $name = $st['student'];
                 $school = $st['school'];
-                $team = "ทีม " . $st['team'];
                 $award = $st['award'];
                 $activity = $st['activity'];
-                $level = "";
+                $level = $st['level'];
                 $date_at = datethaifull(date("Y-m-d"));
-                $project = "";
-                $teacher = "";
+                $project = $st['project'];
+                $teacher = "อาจารที่ปรึกษา " . $st['teacher'];
                 $event = $st['event'];
+                $event2 = $st['event2'];
                 $event_date = $st['event_date'];
                 $ca = $_POST['ca'];
                 $ca_name = $_POST['ca_name'];
@@ -214,12 +225,13 @@
                 $pro_id = $st['pro_id'];
 
 
+
                 $pdf->AddPage();
                 $pdf->setAutoPageBreak(false, 0);
                 // พื้นหลัง
-                $pdf->Image($_SERVER['DOCUMENT_ROOT'] .  $bg, 0, 0, 0, 210, '', '', '', false, 150, '', false, false, 0);
+                $pdf->Image($_SERVER['DOCUMENT_ROOT'] . $bg, 0, 0, 0, 210, '', '', '', false, 150, '', false, false, 0);
                 // ลายเซ็นต์
-                $pdf->Image($_SERVER['DOCUMENT_ROOT'] .  $ca, 110, 142, 0, 50, '', '', '', false, 300, '', false, false, 0);
+                $pdf->Image($_SERVER['DOCUMENT_ROOT'] . $ca, 110, 142, 0, 50, '', '', '', false, 300, '', false, false, 0);
                 // หัวเรื่อง
                 $pdf->setFont('thsarabun', 'B');
                 $pdf->setTextColor(0, 98, 133);
@@ -242,32 +254,41 @@
                 $pdf->setTextColor(40, 46, 75);
                 $pdf->setFontSize(20);
                 $pdf->MultiCell(0, 0, $school, 0, 'C', 0, 1, 0, 82);
-                // ทีม
-                $pdf->setFont('thsarabun', '');
-                $pdf->setTextColor(40, 46, 75);
-                $pdf->setFontSize(20);
-                $pdf->MultiCell(0, 0, $team, 0, 'C', 0, 1, 0, 89);
                 // รางวัล
                 $pdf->setFont('thsarabun', 'B');
                 $pdf->setTextColor(40, 46, 75);
                 $pdf->setFontSize(30);
-                $pdf->MultiCell(0, 0, $award, 0, 'C', 0, 1, 0, 103);
+                $pdf->MultiCell(0, 0, $award, 0, 'C', 0, 1, 0, 93);
                 // รายการแข่ง
                 $pdf->setFont('thsarabun', '');
                 $pdf->setTextColor(40, 46, 75);
                 $pdf->setFontSize(24);
-                $pdf->MultiCell(0, 0, $activity . ' ' . $level, 0, 'C', 0, 1, 0, 122);
-
+                $pdf->MultiCell(0, 0, $activity . ' ' . $level, 0, 'C', 0, 1, 0, 108);
+                // ชื่อผลงาน
+                $pdf->setFont('thsarabun', '');
+                $pdf->setTextColor(40, 46, 75);
+                $pdf->setFontSize(20);
+                $pdf->MultiCell(0, 0, $project, 0, 'C', 0, 1, 0, 117);
+                // ชื่ออาจารย์ที่ปรึกษา
+                $pdf->setFont('thsarabun', '');
+                $pdf->setTextColor(40, 46, 75);
+                $pdf->setFontSize(18);
+                $pdf->MultiCell(0, 0, $teacher, 0, 'C', 0, 1, 0, 125);
                 // ชื่องาน
                 $pdf->setFont('thsarabun', 'B');
                 $pdf->setTextColor(40, 46, 75);
                 $pdf->setFontSize(24);
-                $pdf->MultiCell(0, 0, $event, 0, 'C', 0, 1, 0, 137);
+                $pdf->MultiCell(0, 0, $event, 0, 'C', 0, 1, 0, 132);
+                // ชื่องาน
+                $pdf->setFont('thsarabun', 'B');
+                $pdf->setTextColor(40, 46, 75);
+                $pdf->setFontSize(24);
+                $pdf->MultiCell(0, 0, $event2, 0, 'C', 0, 1, 0, 139);
                 // วันที่จัดงาน
                 $pdf->setFont('thsarabun', 'B');
                 $pdf->setTextColor(40, 46, 75);
                 $pdf->setFontSize(20);
-                $pdf->MultiCell(0, 0, $event_date, 0, 'C', 0, 1, 0, 146);
+                $pdf->MultiCell(0, 0, $event_date, 0, 'C', 0, 1, 0, 147);
 
                 // CA
                 $pdf->setFont('thsarabun', '');
@@ -305,22 +326,21 @@
                     'module_hight' => 1
                 ];
                 // QRCODE,M : QR-CODE Medium error correction
-                $pdf->write2DBarcode('http://161.246.13.61/app-certificate/upload/certificate/' . $folder . '/' . $filename, 'QRCODE,M', 5, 172, 30, 30, $style, 'N');
+                $pdf->write2DBarcode('http://sciserv01.sci.kmitl.ac.th/app-certificate/upload/certificate/' . $folder . '/' . $filename, 'QRCODE,M', 5, 172, 30, 30, $style, 'N');
 
                 //สร้าง pdf
                 $pdf->Output($fileNL, 'F');
                 // $pdf->write2DBarcode('http://sciserv01.sci.kmitl.ac.th/sci-certificate/', 'QRCODE,M', 10, 172, 30, 30, $style, 'N');
                 // $pdf->Output('preview.pdf', 'I');
-
                 $dataC['ba_name']=$_POST['batch_name'];
                 $dataC['num']=$num;
                 $dataC['name']=$name;
                 $dataC['school']=$school;
-                $dataC['project']="";
-                $dataC['teacher']="";
-                $dataC['team']=$team;
+                $dataC['project']=$project;
+                $dataC['teacher']=$teacher;
+                $dataC['team']="";
                 $dataC['activity']=$activity;
-                $dataC['level']="";
+                $dataC['level']=$level;
                 $dataC['award']=$award;
                 $dataC['event']=$event;
                 $dataC['event_date']=$event_date;
@@ -334,7 +354,6 @@
             $ck=$mangeObj->addBatch($dataB);  
             $pdf->Close();
             header("location: /app-certificate/backend/pages/");
-            exit(0);
         }
     }
 ?>

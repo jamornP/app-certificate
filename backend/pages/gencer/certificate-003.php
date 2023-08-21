@@ -1,3 +1,4 @@
+<?php session_start();?>
 <?php require $_SERVER['DOCUMENT_ROOT'] . "/app-certificate/vendor/autoload.php"; ?>
 <?php require $_SERVER['DOCUMENT_ROOT'] . "/app-certificate/lib/TCPDF-master/tcpdf.php"; ?>
 <?php require $_SERVER['DOCUMENT_ROOT'] . "/app-certificate/function/function.php"; ?>
@@ -28,8 +29,8 @@
         $date_at = datethaifull(date("Y-m-d"));
         $project = "";
         $teacher = "";
-        $event = "นิทรรศการวันวิทยาสาสตร์ Science today is Technology Tomorrow";
-        $event_date = "ระหว่างวันที่ 4 - 5 สิงหาคม พ.ศ.2566";
+        $event = 'นิทรรศการวันวิทยาศาสตร์ "Science Today is Technology Tomorrow"';
+        $event_date = "ระหว่างวันที่ 4 - 5 สิงหาคม พ.ศ. 2566";
         $ca = $_POST['ca'];
         $ca_name = $_POST['ca_name'];
         $ca_position = $_POST['ca_position'];
@@ -122,7 +123,7 @@
             $cell_collection = $objPHPExcel->getActiveSheet()->getCellCollection();
             function get($c)
             {
-                $k = array("A" => "num", "B" => "student", "C" => "school", "D" => "activity", "E" => "award", "F" => "event","G"=>"event_date");
+                $k = array("A" => "num", "B" => "student", "C" => "school", "D" => "activity", "E" => "award", "F" => "event","G"=>"event_date","H"=>"pro_id");
                 return $k[$c];
             }
 
@@ -166,7 +167,7 @@
             $dataB['ba_date']=$_POST['batch_date'];
             $dataB['activity_name']=$_POST['activity_name'];
             $dataB['folder']=$_POST['folder'];
-            $dataB['u_id']=1;
+            $dataB['u_id']=$_SESSION['u_id'];
             
             // ที่เก็บ
             $dirf = "../../../upload/certificate/{$_POST['folder']}";
@@ -202,6 +203,7 @@
                 $ca_name = $_POST['ca_name'];
                 $ca_position = $_POST['ca_position'];
                 $ca_position2 = $_POST['ca_position2'];
+                $pro_id = $st['pro_id'];
 
 
 
@@ -311,13 +313,14 @@
                 $dataC['event_date']=$event_date;
                 $dataC['ca_name']=$ca_name;
                 $dataC['link']='/app-certificate/upload/certificate/' . $folder . '/' . $filename;
+                $dataC['pro_id']=$pro_id;
                 $ckC = $mangeObj->addDataCertificate($dataC);
                 
             } 
             $dataB['ba_end']=date("Y-m-d H:i:s");
             $ck=$mangeObj->addBatch($dataB);           
             $pdf->Close();
-            header("location: /app-certificate/backend/pages/certificate/");
+            header("location: /app-certificate/backend/pages/");
             exit(0);
         }
         

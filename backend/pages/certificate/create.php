@@ -1,3 +1,5 @@
+<?php session_start();?>
+<?php $_SESSION['u_id']=1;?>
 <!DOCTYPE html>
 <html lang="en">
 
