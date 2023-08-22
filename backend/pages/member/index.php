@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+<?php require $_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/auth/auth.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,7 +42,7 @@
                 $data['u_email']=$_POST['u_email'];
                 $data['u_password']=$_POST['u_password'];
                 $data['u_name']=$_POST['u_name'];
-                $data['role']="superadmin";
+                $data['role']="admin";
                 $ck = $mangeObj->addUser($data);
                 if ($ck) {
                     $msg = "บันทึกข้อมูลสำเร็จ";

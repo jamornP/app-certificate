@@ -1,4 +1,5 @@
 <?php session_start();?>
+<?php require $_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/auth/auth.php" ?>
 <?php require $_SERVER['DOCUMENT_ROOT'] . "/app-certificate/vendor/autoload.php"; ?>
 <?php require $_SERVER['DOCUMENT_ROOT'] . "/app-certificate/lib/TCPDF-master/tcpdf.php"; ?>
 <?php require $_SERVER['DOCUMENT_ROOT'] . "/app-certificate/function/function.php"; ?>
@@ -47,7 +48,7 @@
         $pdf->setFont('thsarabun', 'B');
         $pdf->setTextColor(0, 98, 133);
         $pdf->setFontSize(26);
-        $pdf->MultiCell(0, 0, 'คณวิทยาศาสตร์', 0, 'C', 0, 1, 0, 40);
+        $pdf->MultiCell(0, 0, 'คณะวิทยาศาสตร์', 0, 'C', 0, 1, 0, 40);
         $pdf->setFontSize(22);
         $pdf->MultiCell(0, 0, 'สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง', 0, 'C', 0, 1, 0, 49);
 
@@ -224,7 +225,7 @@
                 $pdf->setFont('thsarabun', 'B');
                 $pdf->setTextColor(0, 98, 133);
                 $pdf->setFontSize(26);
-                $pdf->MultiCell(0, 0, 'คณวิทยาศาสตร์', 0, 'C', 0, 1, 0, 40);
+                $pdf->MultiCell(0, 0, 'คณะวิทยาศาสตร์', 0, 'C', 0, 1, 0, 40);
                 $pdf->setFontSize(22);
                 $pdf->MultiCell(0, 0, 'สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง', 0, 'C', 0, 1, 0, 49);
 

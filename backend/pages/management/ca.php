@@ -1,4 +1,5 @@
 <?php session_start();?>
+<?php require $_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/auth/auth.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 
