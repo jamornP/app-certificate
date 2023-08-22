@@ -1,5 +1,4 @@
 <?php session_start();?>
-<?php require $_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/auth/auth.php" ?>
 <?php require $_SERVER['DOCUMENT_ROOT'] . "/app-certificate/vendor/autoload.php"; ?>
 <?php require $_SERVER['DOCUMENT_ROOT'] . "/app-certificate/lib/TCPDF-master/tcpdf.php"; ?>
 <?php require $_SERVER['DOCUMENT_ROOT'] . "/app-certificate/function/function.php"; ?>
