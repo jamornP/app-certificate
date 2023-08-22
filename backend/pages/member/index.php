@@ -1,4 +1,4 @@
-<?php session_start();?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,52 +21,52 @@
         <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/component/menu-left.php");   ?>
         <div class="content-wrapper">
             <?php
+            if(isset($_GET['del'])){
+                if($_GET['del']=='ok'){
+                    $msg = "ลบข้อมูลสำเร็จ";
+                    echo "<script>";
+                    echo "alertSuccess('{$msg}','index.php')";
+                    echo "</script>";
+                }else{
+                    $msg = "ลบข้อมูลไม่สำเร็จ";
+                    echo "<script>";
+                    echo "alertError('{$msg}','index.php')";
+                    echo "</script>";
+                }               
+            }
             if (isset($_POST['add'])) {
-                // print_r($_FILES['ca']);
+                // print_r($_FILES['bg']);
                 // echo "<br>";
                 // print_r($_POST);
-                if (isset($_FILES['ca']['tmp_name'])) {
-                    $ext = (explode(".", $_FILES['ca']['name']));
-                    $new_name = uniqid(). "." . $ext[1];
-                    $file_path = $_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/images/ca/" . $new_name;
-                    if ($_FILES['ca']['error'] == 0) {
-                        move_uploaded_file($_FILES['ca']['tmp_name'], $file_path);
-                        $data['ca_name'] = $_POST['ca_name'];
-                        $data['ca_path'] = "/app-certificate/backend/images/ca/". $new_name;
-                        $data['ca_position'] = $_POST['ca_position'];
-                        $data['ca_position2'] = $_POST['ca_position2'];
-                        $data['status'] = 1;
-                        // print_r($data);
-                        $ck = $mangeObj->addca($data);
-                        if ($ck) {
-                            $msg = "บันทึกข้อมูลสำเร็จ";
-                            echo "<script>";
-                            echo "alertSuccess('{$msg}','ca.php')";
-                            echo "</script>";
-                        } else {
-                            $msg = "บันทึกข่อมูลไม่สำเร็จ";
-                            echo "<script>";
-                            echo "alertError('{$msg}','ca.php')";
-                            echo "</script>";
-                        }
-                    } else {
-                        echo "No file";
-                    }
+                $data['u_email']=$_POST['u_email'];
+                $data['u_password']=$_POST['u_password'];
+                $data['u_name']=$_POST['u_name'];
+                $data['role']="superadmin";
+                $ck = $mangeObj->addUser($data);
+                if ($ck) {
+                    $msg = "บันทึกข้อมูลสำเร็จ";
+                    echo "<script>";
+                    echo "alertSuccess('{$msg}','index.php')";
+                    echo "</script>";
                 } else {
-                    echo "No file";
+                    $msg = "บันทึกข้อมูลไม่สำเร็จ";
+                    echo "<script>";
+                    echo "alertError('{$msg}','index.php')";
+                    echo "</script>";
                 }
+                
             }
             ?>
             <section class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>CA</h1>
+                            <h1>Member</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">CA</li>
+                                <li class="breadcrumb-item active">Member</li>
                             </ol>
                         </div>
                     </div>
@@ -80,27 +80,41 @@
                         <div class="card card-outline card-info">
                             <div class="card-header ml-auto">
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-add">
-                                    <i class="fas fa-plus"></i> Add CA
+                                    <i class="fas fa-plus"></i> Add Member
                                 </button>
                             </div>
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-12">
-                                        <div class="row">
-                                            <?php
-                                            $data = $mangeObj->getCa("data");
-                                            foreach ($data as $ca) {
-                                                echo "
-                                                    <div class='col-md-2 col-6 p-1'>
-                                                        <img src='{$ca['ca_path']}' class='img-thumbnail shadow' alt='...'>
-                                                        <p class='text-center' style='margin-bottom: 1px;'>{$ca['ca_name']}</p>
-                                                        <p class='text-center' style='font-size: 14px; margin-bottom: 0;'>{$ca['ca_position']}</p>
-                                                        <p class='text-center' style='font-size: 10px;'>{$ca['ca_position2']}</p>
-                                                    </div>
-                                                ";
-                                            }
-                                            ?>
-                                        </div>
+                                        <table id="example1" class="table table-bordered table-striped">
+                                            <thead>
+                                            <tr>
+                                                <th>ที่</th>
+                                                <th>ชื่อ นามสกุล</th>
+                                                <th>Email</th>
+                                                <th>role</th>
+                                                <th>จัดการ</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                    $dataU = $mangeObj->getAllUser();
+                                                    $i = 0;
+                                                    foreach($dataU as $u){
+                                                        $i++;
+                                                        echo "
+                                                            <tr>
+                                                                <td>{$i}</td>
+                                                                <td>{$u['u_name']}</td>
+                                                                <td>{$u['u_email']}</td>
+                                                                <td>{$u['role']}</td>
+                                                                <td><a href='del.php?del=del&id={$u['u_id']}'>ลบ</a></td>
+                                                            </tr>
+                                                        ";
+                                                    }
+                                                ?>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -115,7 +129,7 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title">เพิ่ม CA</h4>
+                                <h4 class="modal-title">เพิ่ม Member</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -125,31 +139,20 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="ca_name">ชื่อเจ้าของลายเซ็นต์</label>
-                                                <input type="text" class="form-control" id="ca_name" placeholder="ชื่อเจ้าของลายเซ็นต์" name="ca_name" autofocus>
+                                                <label for="u_email">Email <b class="text-danger">*</b></label>
+                                                <input type="text" class="form-control" id="u_email" placeholder="Email" name="u_email" autofocus>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="ca_position">ตำแหน่ง</label>
-                                                <input type="text" class="form-control" id="ca_position" placeholder="ตำแหน่ง" name="ca_position">
+                                                <label for="u_password">Password</label>
+                                                <input type="password" class="form-control" id="u_password" placeholder="Password" name="u_password">
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="ca_position2">สังกัด</label>
-                                                <input type="text" class="form-control" id="ca_position2" placeholder="สังกัด" name="ca_position2">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="exampleInputFile">File CA</label>
-                                                <div class="input-group">
-                                                    <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="exampleInputFile" accept=".png, .jpg" name="ca">
-                                                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                                    </div>
-                                                </div>
+                                                <label for="u_name">ชื่อ สกุล</label>
+                                                <input type="text" class="form-control" id="u_name" placeholder="ชื่อ นามสกุล" name="u_name">
                                             </div>
                                         </div>
 
@@ -179,9 +182,9 @@
     <!-- script -->
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/app-certificate/backend/component/script.php");   ?>
     <script>
-        $(function() {
-            bsCustomFileInput.init();
-        });
+        // $(function() {
+        //     bsCustomFileInput.init();
+        // });
     </script>
 </body>
 

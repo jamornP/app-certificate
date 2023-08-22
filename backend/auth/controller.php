@@ -30,14 +30,14 @@ if(isset($toke["error"]) != "invalid_grant"){
         header('Location: /app-certificate/backend/pages/index.php');
         exit();
     }else{
-        header('Location: /app-certificate/backend/auth/login.php');
+        header('Location: /app-certificate/backend/auth');
         exit();
     }
     // echo "<pre>";
     // var_dump($userData );
     // echo "</pre>";
 }else{
-    header('Location: login.php');
+    header('Location: index.php');
     exit();
 }
 

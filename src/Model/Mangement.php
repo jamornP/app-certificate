@@ -269,5 +269,67 @@ class Mangement extends DbCertificate{
             return false;
         }
     }
+    public function addUser($user){
+        $user['u_password'] = password_hash($user['u_password'],PASSWORD_DEFAULT);
+        $sql = "
+            INSERT INTO tb_user (
+                u_email,
+                u_password, 
+                u_name,
+                role
+                
+            ) VALUES (
+                :u_email,
+                :u_password, 
+                :u_name,
+                :role
+            )
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($user);
+        return true;
+    }
+    public function checkUser($user){
+        $sql = "
+        SELECT
+            *
+        FROM
+            tb_user
+        WHERE
+            u_email = ?
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$user['u_email']]);
+        $data = $stmt->fetchAll();
+        $userDB = $data[0];
+        if(password_verify($user['u_password'],$userDB['u_password'])) {
+            session_start();
+            $_SESSION['certificate-login']=true;
+            $_SESSION['u_id']=$data[0]['u_id'];
+            $_SESSION['u_email']=$data[0]['u_email'];
+            $_SESSION['u_name']=$data[0]['u_name'];
+            $_SESSION['role']=$data[0]['role'];
+            $_SESSION['img']="/app-certificate/backend/images/logo/user.png";
+
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function getAllUser(){
+        $sql ="
+            SELECT * FROM tb_user
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
+    public function delUser($id){
+        $sql = "
+            DELETE FROM tb_user WHERE u_id={$id}
+        ";
+        $stmt = $this->pdo->query($sql);
+        return true;
+    }
 }
 ?>

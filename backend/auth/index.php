@@ -17,11 +17,11 @@
       <a href="/app-certificate/" class="h1"><b>Science</b></a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <p class="login-box-msg"></p>
 
       <form action="save.php" method="post">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="email" class="form-control" placeholder="Email" name="u_email">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -29,7 +29,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" placeholder="Password" name="u_password" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -52,17 +52,12 @@
       
       <div class="social-auth-links text-center mt-2 mb-3">
         <a href="<?php echo $login_url;?>" class="btn btn-block btn-danger">
-          <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
+           Sign in Google
         </a>
       </div>
       <!-- /.social-auth-links -->
 
-      <p class="mb-1">
-        <a href="resetpassword.php">I forgot my password</a>
-      </p>
-      <p class="mb-0">
-        <a href="register.php" class="text-center">Register a new membership</a>
-      </p>
+     
     </div>
     <!-- /.card-body -->
   </div>

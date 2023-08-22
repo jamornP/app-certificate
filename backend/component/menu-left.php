@@ -28,24 +28,14 @@
         </div>
       </div>
 
-      <!-- SidebarSearch Form -->
-      <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-
+      
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
+          <!-- <li class="nav-item menu-open"> -->
+          <li class="nav-item">
             <!-- <a href="#" class="nav-link active"> -->
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -58,22 +48,35 @@
               <li class="nav-item">
                 <!-- <a href="/app-certificate/backend/pages/management/bg.php" class="nav-link active"> -->
                 <a href="/app-certificate/backend/pages/management/bg.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Background</p>
+                  <i class="nav-icon far fa-image"></i>
+                  <p> Background</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/app-certificate/backend/pages/management/ca.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>CA</p>
+                  <i class="nav-icon fas fa-pencil-alt"></i>
+                  <p> CA</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="/app-certificate/backend/pages/management/file-php.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>File PHP</p>
-                </a>
-              </li>
+              <?php
+                if(isset($_SESSION['role']) && $_SESSION['role']=="superadmin"){
+                  echo "
+                    <li class='nav-item'>
+                      <a href='/app-certificate/backend/pages/management/file-php.php' class='nav-link'>
+                        <i class='nav-icon far fa-file-code'></i> 
+                        <p> File PHP</p>
+                      </a>
+                    </li>
+                    <li class='nav-item'>
+                      <a href='/app-certificate/backend/pages/member' class='nav-link'>
+                        <i class='nav-icon 	fas fa-user-tie'></i> 
+                        <p> Users</p>
+                      </a>
+                    </li>
+                  ";
+                }
+              ?>
+              
             </ul>
           </li>
       

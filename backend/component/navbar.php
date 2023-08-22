@@ -25,7 +25,7 @@ date_default_timezone_set('Asia/Bangkok');
     </ul>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item ">
-            <a href="/app-certificate/backend/auth/logout.php" class="nav-link ">
+            <a href="/app-certificate/backend/auth/logout.php" class="nav-link text-danger">
             <i class="fa fa-power-off"></i> Logout
             </a>
             

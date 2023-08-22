@@ -2,6 +2,6 @@
 
 $_SESSION=[];
 
-header("location: /app-certificate/backend/auth/login.php");
+header("location: /app-certificate/backend/auth");
 exit();
 ?>
