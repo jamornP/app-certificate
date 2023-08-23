@@ -54,7 +54,7 @@
               </li>
               <li class="nav-item">
                 <a href="/app-certificate/backend/pages/management/ca.php" class="nav-link">
-                  <i class="nav-icon fas fa-pencil-alt"></i>
+                  <i class="nav-icon fas fa-pen-fancy"></i>
                   <p> CA</p>
                 </a>
               </li>
@@ -81,7 +81,17 @@
           </li>
       
           <li class="nav-header"></li>
+          <li class="nav-header"></li>
+          <li class="nav-header"></li>
+          <li class="nav-header"></li>
+          <li class="nav-header"></li>
           
+          <li class="nav-item">
+            <a href="/app-certificate/backend/auth/resetpassword.php" class="nav-link">
+              <i class="nav-icon fas fa-key"></i>
+              <p>เปลี่ยน Password</p>
+            </a>
+          </li>
           <li class="nav-item">
             <a href="/app-certificate/backend/auth/logout.php" class="nav-link text-danger">
               <i class="nav-icon fas fa-power-off"></i>

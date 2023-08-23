@@ -60,7 +60,7 @@
                                             echo "alertSuccess('{$msg}','file-php.php')";
                                             echo "</script>";
                                         } else {
-                                            $msg = "บันทึกข่อมูลไม่สำเร็จ";
+                                            $msg = "บันทึกข้อมูลไม่สำเร็จ";
                                             echo "<script>";
                                             echo "alertError('{$msg}','file-php.php')";
                                             echo "</script>";

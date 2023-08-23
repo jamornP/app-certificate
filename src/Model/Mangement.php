@@ -329,7 +329,24 @@ class Mangement extends DbCertificate{
             DELETE FROM tb_user WHERE u_id={$id}
         ";
         $stmt = $this->pdo->query($sql);
-        return true;
+        if($stmt){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public function ChangePass($user){
+        $user['u_password'] = password_hash($user['u_password'],PASSWORD_DEFAULT);
+        $sql = "
+            UPDATE tb_user SET u_password = :u_password WHERE u_email = :u_email
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $ck=$stmt->execute($user);
+        if($ck){
+            return true;
+        }else{
+            return false;
+        }
     }
 }
 ?>
