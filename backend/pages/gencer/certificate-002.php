@@ -198,7 +198,7 @@
                 $num = $st['num'];
                 $name = $st['student'];
                 $school = $st['school'];
-                $team = "ทีม " . $st['team'];
+                $team = $st['team'];
                 $award = $st['award'];
                 $activity = $st['activity'];
                 $level = "";
@@ -334,7 +334,6 @@
             $ck=$mangeObj->addBatch($dataB);  
             $pdf->Close();
             header("location: /app-certificate/backend/pages/");
-            exit(0);
         }
     }
 ?>

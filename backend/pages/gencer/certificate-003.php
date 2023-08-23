@@ -321,7 +321,6 @@
             $ck=$mangeObj->addBatch($dataB);           
             $pdf->Close();
             header("location: /app-certificate/backend/pages/");
-            exit(0);
         }
         
     }

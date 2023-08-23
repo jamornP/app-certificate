@@ -35,7 +35,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <!-- <li class="nav-item menu-open"> -->
-          <li class="nav-item">
+          <li class="nav-item menu-open">
             <!-- <a href="#" class="nav-link active"> -->
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -44,7 +44,7 @@
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            <ul class="nav nav-treeview" id="myDIV">
               <li class="nav-item">
                 <!-- <a href="/app-certificate/backend/pages/management/bg.php" class="nav-link active"> -->
                 <a href="/app-certificate/backend/pages/management/bg.php" class="nav-link">
@@ -56,6 +56,12 @@
                 <a href="/app-certificate/backend/pages/management/ca.php" class="nav-link">
                   <i class="nav-icon fas fa-pen-fancy"></i>
                   <p> CA</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/app-certificate/backend/pages/management/event.php" class="nav-link">
+                  <i class="nav-icon fas fa-search"></i>
+                  <p> Event</p>
                 </a>
               </li>
               <?php

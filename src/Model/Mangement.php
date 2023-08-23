@@ -180,12 +180,24 @@ class Mangement extends DbCertificate{
             return $data;
         }
     }
-    public function getCertificate($name){
+    public function getCertificate($name,$e_name){
         $sql = "
             SELECT *
             FROM tb_data_certificate
-            WHERE name LIKE '%{$name}%'
+            WHERE name LIKE '%{$name}%' AND event LIKE '".htmlspecialchars($e_name)."%'
             ORDER BY name
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        return $data;
+        // return $sql;
+    }
+    public function getDataCerEvent(){
+        $sql ="
+            SELECT * 
+            FROM tb_data_certificate as dc
+            WHERE event NOT IN (SELECT e_name FROM tb_event)
+            GROUP BY event
         ";
         $stmt = $this->pdo->query($sql);
         $data = $stmt->fetchAll();
@@ -348,5 +360,32 @@ class Mangement extends DbCertificate{
             return false;
         }
     }
+
+    // Event
+    public function addEvent($data){
+        $sql = "
+            INSERT INTO tb_event(
+                e_name,
+                e_img,
+                e_show
+            ) VALUES (
+                :e_name,
+                :e_img,
+                :e_show
+            )
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($data);
+        return true;
+    }
+    public function getEvent(){
+        $sql ="
+            SELECT * FROM tb_event
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
+
 }
 ?>

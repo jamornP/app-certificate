@@ -48,60 +48,33 @@ date_default_timezone_set('Asia/Bangkok');
     <div class="container mt-5">
         <div class="card shadow">
             <div class="card-header bg-primary text-white">
-               <h4>Certificate Sciday2023</h4> 
+               <h4>เลือก Certificate ที่ต้องการ</h4> 
             </div>
             <div class="card-body">
-                <form class="d-flex" action="" method="POST">
-                    <input class="form-control me-2" type="search" placeholder="ใส่ชื่ออย่างเดียว" aria-label="Search" name="search" autofocus="">
-                    <button class="btn btn-outline-success" type="submit" name="submit">Search</button>
-                </form>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row">
+                            <?php
+                            $data = $mangeObj->getEvent();
+                            foreach ($data as $ev) {
+                                $sql = "event={$ev['e_name']}";
+                                echo "
+                                    <a href='/app-certificate/search.php?{$sql}'>
+                                        <div class='col-md-2 col-6 p-1'>
+                                            <img src='{$ev['e_img']}' class='img-thumbnail shadow' alt='...'>
+                                            <p class='text-center'>{$ev['e_name']}</p>
+                                        </div>
+                                    </a>
+                                ";
+                            }
+                            ?>
+                        </div>
+                    </div>
+                </div>
             </div>
             
         </div>
-        <?php
-            if(isset($_POST['submit'])){ 
-                ?>
-                <div class="card shadow mt-3">
-                    
-                    <div class="card-body">
-                    <table class="table table-sm">
-                        <thead>
-                            <tr>
-                                <th>ชื่อ-นามสกุล</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <?php
-                            $data = $mangeObj->getCertificate($_POST['search']);
-                            if(count($data)>0){
-                                foreach($data as $st){
-                                    echo "
-                                        <tr>
-                                            <td class='text-primary'>{$st['name']}</td>
-                                            <td class='text-end'><a href='{$st['link']}' class='btn btn-danger' target='_blank'><i class='fas fa-download'></i> Download</a></td>
-                                        </tr>
-                                    ";
-                                }
-                            }else{
-                                echo "
-                                    <tr>
-                                        <td colspan='2' class='text-center text-danger'><i class='fas fa-ban'></i> ไม่พบข้อมูล</td>
-                                    </tr>
-                                ";
-                            }
-                            
-                            
-                        ?>
-                            
-                        </tbody>
-                    </table>
-                        
-                    </div>
-                </div>
-                <?php
-            }
-        ?>
+        
     </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
