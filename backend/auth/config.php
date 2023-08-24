@@ -7,7 +7,7 @@
     if($_SESSION['linux']){
         $gClient->setRedirectUri("http://sciserv01.sci.kmitl.ac.th/app-certificate/backend/auth/controller.php");
     }else{
-        $gClient->setRedirectUri("http://app.science.kmitl.ac.th/app-certificate/backend/auth/controller.php");
+        $gClient->setRedirectUri("http://localhost/app-certificate/backend/auth/controller.php");
     }
     
     $gClient->addScope("https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email");
