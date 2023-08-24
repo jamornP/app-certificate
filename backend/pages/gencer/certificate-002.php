@@ -284,15 +284,30 @@
                 $pdf->MultiCell(0, 0, $ca_position2, 0, 'C', 0, 1, 0, 191);
 
                 //สร้างไฟล์
-                $fol = "\\app-certificate\\upload\\certificate\\" . $folder . "\\"; //window
-                // $fol = "/sci-certificate/upload/certificate/{$_POST['folder']}"; //linux
-                $filename = "01-{$folder}-{$st['num']}.pdf";
-                $filelocation = $_SERVER['DOCUMENT_ROOT'] . $fol; //windows
-                // $filelocation = "/home/jamorn" . $fol; //Linux
+                if($_SESSION['linux']){
+                    $fol = "app-certificate/upload/certificate/{$folder}/"; //linux
+                    $filename = "01-{$folder}-{$st['num']}.pdf";
+                    $filelocation = $_SERVER['DOCUMENT_ROOT'] . $fol; //Linux
 
-                $fileNL = $filelocation . $filename; //Windows
-                // $fileNL = $filelocation . "/" . $filename; //Linux
-                $serv = "/upload/certificate/{$folder}/" . $filename;
+                    $fileNL = $filelocation . $filename; //Windows,linux
+                    $serv = "/upload/certificate/{$folder}/" . $filename;
+                }else{
+                    $fol = "\\app-certificate\\upload\\certificate\\" . $folder . "\\"; //window
+                    $filename = "01-{$folder}-{$st['num']}.pdf";
+                    $filelocation = $_SERVER['DOCUMENT_ROOT'] . $fol; //windows
+    
+                    $fileNL = $filelocation . $filename; //Windows,linux
+                    $serv = "/upload/certificate/{$folder}/" . $filename;
+                }
+                // $fol = "\\app-certificate\\upload\\certificate\\" . $folder . "\\"; //window
+                // // $fol = "app-certificate/upload/certificate/{$folder}/"; //linux
+                // $filename = "01-{$folder}-{$st['num']}.pdf";
+                // $filelocation = $_SERVER['DOCUMENT_ROOT'] . $fol; //windows
+                // // $filelocation = $_SERVER['DOCUMENT_ROOT'] . $fol; //Linux
+
+                // $fileNL = $filelocation . $filename; //Windows
+                // // $fileNL = $filelocation . "/" . $filename; //Linux
+                // $serv = "/upload/certificate/{$folder}/" . $filename;
 
                 // QR COde
                 $style = [

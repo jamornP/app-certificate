@@ -85,6 +85,18 @@
                         <p> Delete Certificate</p>
                       </a>
                     </li>
+                    <li class='nav-item'>
+                      <a href='/app-certificate/backend/pages/admin/linux.php' class='nav-link'>
+                        <i class='nav-icon 	fas fa-scroll'></i> 
+                        <p> Linux</p>
+                      </a>
+                    </li>
+                    <li class='nav-item'>
+                      <a href='/app-certificate/backend/pages/admin/windows.php' class='nav-link'>
+                        <i class='nav-icon 	fas fa-scroll'></i> 
+                        <p> Windows</p>
+                      </a>
+                    </li>
                   ";
                 }
               ?>

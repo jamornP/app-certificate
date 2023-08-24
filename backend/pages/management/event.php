@@ -35,7 +35,7 @@
                         $data['e_name'] = $_POST['e_name'];
                         $data['e_img'] = "/app-certificate/backend/images/event/".$new_name;
                         $data['e_show'] = 1;
-                        print_r($data);
+                        // print_r($data);
                         $ck = $mangeObj->addEvent($data);
                         if ($ck) {
                             $msg = "บันทึกข้อมูลสำเร็จ";

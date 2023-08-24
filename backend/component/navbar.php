@@ -25,10 +25,27 @@ date_default_timezone_set('Asia/Bangkok');
     </ul>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item ">
+            <a class="nav-link">
+                <i class="far fa-bell"></i> 
+                <?php 
+                    if(isset($_SESSION['certificate-login'])){
+                        if(isset($_SESSION['linux'])){
+                            if($_SESSION['linux']){
+                                echo "Linux";
+                            }else{
+                                echo "Windows";
+                            }
+                        }else{
+                            echo "ยังไม่ได้เลือกระบบ";
+                        }
+                    }
+                ?>
+            </a>
+        </li>
+        <li class="nav-item ">
             <a href="/app-certificate/backend/auth/logout.php" class="nav-link text-danger">
             <i class="fa fa-power-off"></i> Logout
             </a>
-            
         </li>
         <!-- <li class="nav-item">
             <a class="nav-link" data-widget="fullscreen" href="#" role="button">
