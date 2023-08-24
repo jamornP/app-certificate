@@ -333,6 +333,7 @@ class Mangement extends DbCertificate{
         $_SESSION['u_name']=$data[0]['u_name'];
         $_SESSION['role']=$data[0]['role'];
         $_SESSION['img']=$img;
+        $_SESSION['linux']=true;
         
         return $data[0];
         }else{
@@ -380,6 +381,7 @@ class Mangement extends DbCertificate{
             $_SESSION['u_name']=$data[0]['u_name'];
             $_SESSION['role']=$data[0]['role'];
             $_SESSION['img']="/app-certificate/backend/images/logo/user.png";
+            $_SESSION['linux']=true;
 
             return true;
         } else {
