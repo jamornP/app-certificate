@@ -34,6 +34,7 @@ date_default_timezone_set('Asia/Bangkok');
     <link rel="stylesheet" href="/app-certificate/plugins/fontawesome-free/css/all.min.css">
     <!-- Fonts -->
     <link rel="stylesheet" href="/app-certificate/css/font.css">
+    <link rel="stylesheet" href="/app-certificate/css/color.css">
      <!-- Style -->
     <link rel="stylesheet" href="/app-certificate/backend/component/style.css">
 </head>
@@ -50,7 +51,7 @@ date_default_timezone_set('Asia/Bangkok');
             <div class="card-header bg-primary text-white">
                <h4>เลือก Certificate ที่ต้องการ</h4> 
             </div>
-            <div class="card-body">
+            <div class="card-body bg-12">
                 <div class="row">
                     <div class="col-12">
                         <div class="row">

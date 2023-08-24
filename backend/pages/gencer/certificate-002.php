@@ -326,7 +326,7 @@
                 $dataC['event_date']=$event_date;
                 $dataC['ca_name']=$ca_name;
                 $dataC['link']='/app-certificate/upload/certificate/' . $folder . '/' . $filename;
-                $dataC['pro_id']=$pro_id;
+                $dataC['pro_id']="";
                 $ckC = $mangeObj->addDataCertificate($dataC);
 
             }

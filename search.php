@@ -48,13 +48,22 @@ date_default_timezone_set('Asia/Bangkok');
     <div class="container mt-5">
         <div class="card shadow">
             <div class="card-header bg-primary text-white">
-               <h4><?php echo $_GET['event'];?></h4> 
-               <?php $_SESSION['event']=$_GET['event'];?>
+               <h4>
+                    <?php 
+                        if(isset($_GET['event'])){
+                            echo $_GET['event'];
+                            $_SESSION['event']=$_GET['event'];
+                        }else{
+                            echo "Search Certificate";
+                        }
+                        
+                    ?>
+                </h4> 
             </div>
             <div class="card-body">
                 <form class="d-flex" action="" method="POST">
                     <input class="form-control me-2" type="search" placeholder="ใส่ชื่ออย่างเดียว" aria-label="Search" name="search" autofocus="">
-                    <input class="form-control me-2" type="hidden" name="e_name" value="<?php echo $_SESSION['event'];?>">
+                    <input class="form-control me-2" type="hidden" name="e_name" value='<?php if(isset($_GET['event'])){echo $_SESSION['event'];}?>'>
                     <button class="btn btn-outline-success" type="submit" name="submit">Search</button>
                 </form>
             </div>
@@ -76,7 +85,7 @@ date_default_timezone_set('Asia/Bangkok');
                         <tbody>
                         <?php
                             $data = $mangeObj->getCertificate($_POST['search'],$_POST['e_name']);
-                           
+                        //    echo $data;
                             if(count($data)>0){
                                 foreach($data as $st){
                                     echo "

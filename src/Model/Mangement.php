@@ -184,7 +184,7 @@ class Mangement extends DbCertificate{
         $sql = "
             SELECT *
             FROM tb_data_certificate
-            WHERE name LIKE '%{$name}%' AND event LIKE '".htmlspecialchars($e_name)."%'
+            WHERE name LIKE '%{$name}%' AND event LIKE '{$e_name}'
             ORDER BY name
         ";
         $stmt = $this->pdo->query($sql);
@@ -202,6 +202,42 @@ class Mangement extends DbCertificate{
         $stmt = $this->pdo->query($sql);
         $data = $stmt->fetchAll();
         return $data;
+    }
+    public function getDataById($id){
+        $sql = "
+            SELECT *
+            FROM tb_data_certificate
+            WHERE dc_id = {$id}
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        return $data[0];
+    }
+    public function delDataById($id){
+        $sql ="
+            DELETE 
+            FROM tb_data_certificate 
+            WHERE dc_id = {$id}
+        ";
+        $stmt = $this->pdo->query($sql);
+        if($stmt){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public function delDataByBatch($id){
+        $sql ="
+            DELETE 
+            FROM tb_data_certificate 
+            WHERE ba_name = '{$id}'
+        ";
+        $stmt = $this->pdo->query($sql);
+        if($stmt){
+            return true;
+        }else{
+            return false;
+        }
     }
     // Batch
     public function addBatch($data){
@@ -257,7 +293,29 @@ class Mangement extends DbCertificate{
         $data = $stmt->fetchAll();
         return $data;
     }
-
+    public function getBatchById($id){
+        $sql ="
+            SELECT * 
+            FROM tb_batch
+            WHERE ba_name = {$id}
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        return $data[0];
+    }
+    public function delBatch($id){
+        $sql ="
+            DELETE 
+            FROM tb_batch
+            WHERE ba_name = '{$id}'
+        ";
+        $stmt = $this->pdo->query($sql);
+        if($stmt){
+            return true;
+        }else{
+            return false;
+        }
+    }
     // User
     public function getUser($email,$img){
         $sql ="
