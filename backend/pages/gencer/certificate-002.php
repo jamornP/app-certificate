@@ -211,7 +211,7 @@
                 $ca_name = $_POST['ca_name'];
                 $ca_position = $_POST['ca_position'];
                 $ca_position2 = $_POST['ca_position2'];
-                $pro_id = $st['pro_id'];
+                $pro_id = "";
 
 
                 $pdf->AddPage();
@@ -326,7 +326,7 @@
                 $dataC['event_date']=$event_date;
                 $dataC['ca_name']=$ca_name;
                 $dataC['link']='/app-certificate/upload/certificate/' . $folder . '/' . $filename;
-                $dataC['pro_id']="";
+                $dataC['pro_id']=$pro_id;
                 $ckC = $mangeObj->addDataCertificate($dataC);
 
             }
