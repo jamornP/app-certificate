@@ -64,6 +64,12 @@
                   <p> Event</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="/app-certificate/backend/pages/admin/ma-cer.php" class="nav-link">
+                  <i class="nav-icon fas fa-search"></i>
+                  <p> Check ซ้ำ</p>
+                </a>
+              </li>
               <?php
                 if(isset($_SESSION['role']) && $_SESSION['role']=="superadmin"){
                   echo "

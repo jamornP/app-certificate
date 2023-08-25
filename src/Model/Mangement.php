@@ -193,6 +193,34 @@ class Mangement extends DbCertificate{
             return $data;
         }
     }
+    public function getDataCerByEvent($action,$event){
+        $sql = "
+            SELECT *
+            FROM tb_data_certificate
+            WHERE event='{$event}'
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        if($action=='count'){
+            return count($data);
+        }else{
+            return $data;
+        }
+    }
+    public function getDataEvent($action){
+        $sql = "
+            SELECT *
+            FROM tb_data_certificate
+            GROUP BY event
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        if($action=='count'){
+            return count($data);
+        }else{
+            return $data;
+        }
+    }
     public function getCertificate($name,$e_name){
         $sql = "
             SELECT *
