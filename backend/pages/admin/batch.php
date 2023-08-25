@@ -107,7 +107,12 @@
                                 </table>
                             </div>
                             <div class="card-footer">
-
+                                <?php
+                                    $countData = $mangeObj->getDataCerByAll("count");
+                                    $c = number_format( $countData, 0 );
+                                    echo "<a class=''>จำนวน Certificate ทั้งหมดในระบบ &nbsp;&nbsp;&nbsp;<b class='text-danger'>{$c}</b> &nbsp;&nbsp;&nbsp;ใบ</a>";
+                                ?>
+                                
                             </div>
                         </div>
                     </div>

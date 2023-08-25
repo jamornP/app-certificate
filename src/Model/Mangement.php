@@ -166,6 +166,19 @@ class Mangement extends DbCertificate{
         $stmt->execute($data);
         return $this->pdo->lastInsertId();
     }
+    public function getDataCerByAll($action){
+        $sql = "
+            SELECT *
+            FROM tb_data_certificate
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        if($action=='count'){
+            return count($data);
+        }else{
+            return $data;
+        }
+    }
     public function getDataCerByBatch($action,$batch){
         $sql = "
             SELECT *
