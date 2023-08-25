@@ -26,8 +26,8 @@
         $activity = "กิจกรรม";
         $level = "ระดับ";
         $date_at = datethaifull(date("Y-m-d"));
-        $project = "ชื่อผลงาน";
-        $teacher = "ครูที่ปรึกษา";
+        $project = '"ชื่อผลงาน"';
+        $teacher = "อาจารย์ที่ปรึกษา";
         $event = "นิทรรศการวันวิทยาศาสตร์ ประจำปี 2566";
         $event2 = '"Science Today is Technology Tomorrow"';
         $event_date = "ระหว่างวันที่ 4 - 5 สิงหาคม พ.ศ. 2566";
@@ -214,7 +214,7 @@
                 $level = $st['level'];
                 $date_at = datethaifull(date("Y-m-d"));
                 $project = $st['project'];
-                $teacher = "อาจารที่ปรึกษา " . $st['teacher'];
+                $teacher = $st['teacher'];
                 $event = $st['event'];
                 $event2 = $st['event2'];
                 $event_date = $st['event_date'];
@@ -268,7 +268,7 @@
                 $pdf->setFont('thsarabun', '');
                 $pdf->setTextColor(40, 46, 75);
                 $pdf->setFontSize(20);
-                $pdf->MultiCell(0, 0, $project, 0, 'C', 0, 1, 0, 117);
+                $pdf->MultiCell(0, 0, '"'.$project.'"', 0, 'C', 0, 1, 0, 117);
                 // ชื่ออาจารย์ที่ปรึกษา
                 $pdf->setFont('thsarabun', '');
                 $pdf->setTextColor(40, 46, 75);
