@@ -60,12 +60,14 @@ date_default_timezone_set('Asia/Bangkok');
                             foreach ($data as $ev) {
                                 $sql = "event={$ev['e_name']}";
                                 echo "
-                                    <a href='/app-certificate/search.php?{$sql}'>
+                                    
                                         <div class='col-md-2 col-6 p-1'>
-                                            <img src='{$ev['e_img']}' class='img-thumbnail shadow' alt='...'>
-                                            <p class='text-center'>{$ev['e_name']}</p>
+                                            <a href='/app-certificate/search.php?{$sql}'>
+                                                <img src='{$ev['e_img']}' class='img-thumbnail shadow' alt='...'>
+                                                <p class='text-center'>{$ev['e_name']}</p>
+                                            </a>
                                         </div>
-                                    </a>
+                                    
                                 ";
                             }
                             ?>

@@ -40,7 +40,7 @@ date_default_timezone_set('Asia/Bangkok');
 <body>
     <nav class="navbar navbar-dark" style="background-color : #ff7a00">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="index.php">
         <img src="/app-certificate/backend/images/logo/logo-white.png" alt="Science Logo" class="" style="display:table; margin: 0 auto; max-width:200px;">
         </a>
     </div>
