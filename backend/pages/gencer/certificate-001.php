@@ -260,7 +260,15 @@
                 // ชื่อผลงาน
                 $pdf->setFont('thsarabun', '');
                 $pdf->setTextColor(40, 46, 75);
-                $pdf->setFontSize(20);
+                if(utf8_strlen($project) < 110){
+                    $pdf->setFontSize(20);
+                }elseif(utf8_strlen($project) < 140){
+                    $pdf->setFontSize(16);
+                }elseif(utf8_strlen($project) < 160){
+                    $pdf->setFontSize(14);
+                }else{
+                    $pdf->setFontSize(12);
+                }
                 $pdf->MultiCell(0, 0, '"'.$project.'"', 0, 'C', 0, 1, 0, 117);
                 // ชื่ออาจารย์ที่ปรึกษา
                 $pdf->setFont('thsarabun', '');
