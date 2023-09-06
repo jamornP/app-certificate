@@ -60,7 +60,7 @@
               </li>
               <li class="nav-item">
                 <a href="/app-certificate/backend/pages/management/event.php" class="nav-link">
-                  <i class="nav-icon fas fa-search"></i>
+                  <i class="nav-icon fas fa-bullhorn"></i>
                   <p> Event</p>
                 </a>
               </li>
