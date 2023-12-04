@@ -62,7 +62,11 @@
                                     </thead>
                                     <tbody class="">
                                         <?php
-                                            $data = $mangeObj->getBatchAll();
+                                            if($_SESSION['role']=='superadmin'){
+                                                $data = $mangeObj->getBatchAll();
+                                            }else{
+                                                $data = $mangeObj->getBatchByUser($_SESSION['u_id']);
+                                            }
                                             // print_r($data);
                                             foreach($data as $ba){
                                                 $countC = $mangeObj->getDataCerByBatch("count",$ba['ba_name']);

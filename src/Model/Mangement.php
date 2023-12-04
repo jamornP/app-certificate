@@ -334,6 +334,17 @@ class Mangement extends DbCertificate{
         $data = $stmt->fetchAll();
         return $data;
     }
+    public function getBatchByUser($u_id){
+        $sql = "
+            SELECT *
+            FROM tb_batch
+            WHERE u_id = {$u_id}
+            ORDER BY ba_date DESC
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
     public function getBatchById($id){
         $sql ="
             SELECT * 
