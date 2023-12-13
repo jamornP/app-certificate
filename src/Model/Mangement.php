@@ -493,6 +493,7 @@ class Mangement extends DbCertificate{
     public function getEvent(){
         $sql ="
             SELECT * FROM tb_event
+            ORDER BY e_id DESC
         ";
         $stmt = $this->pdo->query($sql);
         $data = $stmt->fetchAll();
