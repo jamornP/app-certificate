@@ -99,6 +99,16 @@
                     </li>
                   ";
                 }
+                if(isset($_SESSION['role']) && $_SESSION['role']=="admin"){
+                  echo "
+                    <li class='nav-item'>
+                      <a href='/app-certificate/backend/pages/admin/batch.php' class='nav-link'>
+                        <i class='nav-icon 	fas fa-scroll'></i> 
+                        <p> Delete Certificate</p>
+                      </a>
+                    </li>
+                  ";
+                }
               ?>
               
             </ul>
