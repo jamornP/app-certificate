@@ -49,7 +49,21 @@
                             echo "</script>";
                         }
                     } else {
-                        echo  "no image";
+                        $data['e_img'] = "/app-certificate/backend/images/event/non.png";
+                        $data['e_name'] = $_POST['e_name'];
+                        $data['e_show'] = 1;
+                        $ck = $mangeObj->addEvent($data);
+                        if ($ck) {
+                            $msg = "บันทึกข้อมูลสำเร็จ";
+                            echo "<script>";
+                            echo "alertSuccess('{$msg}','event.php')";
+                            echo "</script>";
+                        } else {
+                            $msg = "บันทึกข้อมูลไม่สำเร็จ";
+                            echo "<script>";
+                            echo "alertError('{$msg}','event.php')";
+                            echo "</script>";
+                        }
 
                     }
                 } else {
