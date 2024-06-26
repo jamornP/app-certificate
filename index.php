@@ -56,7 +56,7 @@ date_default_timezone_set('Asia/Bangkok');
                     <div class="col-12">
                         <div class="row">
                             <?php
-                            $data = $mangeObj->getEvent();
+                            $data = $mangeObj->getEventShow();
                             foreach ($data as $ev) {
                                 $sql = "event={$ev['e_name']}";
                                 echo "

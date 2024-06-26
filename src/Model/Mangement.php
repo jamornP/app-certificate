@@ -499,6 +499,16 @@ class Mangement extends DbCertificate{
         $data = $stmt->fetchAll();
         return $data;
     }
+    public function getEventShow(){
+        $sql ="
+            SELECT * FROM tb_event
+            WHERE e_show = 1
+            ORDER BY e_id DESC
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
 
 }
 ?>
