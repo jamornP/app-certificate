@@ -70,7 +70,7 @@ date_default_timezone_set('Asia/Bangkok');
             
         </div>
         <?php
-            if(isset($_POST['submit'])){ 
+            if(isset($_POST['submit']) AND $_POST['search']!=""){ 
                 ?>
                 <div class="card shadow mt-3">
                     
@@ -84,7 +84,10 @@ date_default_timezone_set('Asia/Bangkok');
                         </thead>
                         <tbody>
                         <?php
-                            $data = $mangeObj->getCertificate($_POST['search'],$_POST['e_name']);
+                        $data['name'] = "%".$_POST['search']."%";
+                        $data['e_name'] = $_POST['e_name'];
+                        // print_r($data);
+                            $data = $mangeObj->getCertificate($data);
                         //    echo $data;
                             if(count($data)>0){
                                 foreach($data as $st){

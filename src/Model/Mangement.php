@@ -221,14 +221,15 @@ class Mangement extends DbCertificate{
             return $data;
         }
     }
-    public function getCertificate($name,$e_name){
+    public function getCertificate($data){
         $sql = "
             SELECT *
             FROM tb_data_certificate
-            WHERE name LIKE '%{$name}%' AND event LIKE '{$e_name}'
+            WHERE name LIKE :name AND event = :e_name
             ORDER BY name
         ";
-        $stmt = $this->pdo->query($sql);
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($data);
         $data = $stmt->fetchAll();
         return $data;
         // return $sql;
