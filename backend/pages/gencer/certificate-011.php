@@ -39,6 +39,8 @@
         // อาจารย์โชค
         $bg = "/app-certificate/backend/images/bg/bg-science.png";
         $person['name'] = "ชื่อ นามสกุล";
+        $person['school'] = "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง";
+        $person['year'] = "ปีการศึกษา 2567";
         $person['department']="วิทยาการคอมพิวเตอร์";
         $person['award']="A";
         $date_at = datethaifull(date("Y-m-d"));
@@ -50,42 +52,49 @@
         // ลายเซ็นต์
         // $pdf->Image($_SERVER['DOCUMENT_ROOT'] . $ca, 110, 132, 0, 50, '', '', '', false, 300, '', false, false, 0);
         // หัวเรื่อง
-        $pdf->SetFont('thsarabun', 'B');
+        $pdf->SetFont('thsarabun', '');
         $pdf->SetTextColor(0, 0, 0);
-        $pdf->SetFontSize(36);
-        $pdf->MultiCell(0, 0, "สมาคมวิทยาศาสตร์แห่งประเทศไทยในพระบรมราชูปถัมภ์ ", 0, 'C', 0, 1, 0, 50);
-        $pdf->SetFontSize(36);
-        $pdf->MultiCell(0, 0, "สภาคณบดีวิทยาศาสตร์แห่งประเทศไทย", 0, 'C', 0, 1, 0, 62);
-        $pdf->SetFontSize(36);
-        $pdf->MultiCell(0, 0, "และคณะวิทยาศาสตร์ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง", 0, 'C', 0, 1, 0, 74);
+        $pdf->SetFontSize(34);
+        $pdf->MultiCell(0, 0, "สมาคมวิทยาศาสตร์แห่งประเทศไทยในพระบรมราชูปถัมภ์ ", 0, 'C', 0, 1, 0, 49);
+        $pdf->SetFontSize(34);
+        $pdf->MultiCell(0, 0, "สภาคณบดีวิทยาศาสตร์แห่งประเทศไทย", 0, 'C', 0, 1, 0, 60);
+        $pdf->SetFontSize(34);
+        $pdf->MultiCell(0, 0, "และคณะวิทยาศาสตร์ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง", 0, 'C', 0, 1, 0, 72);
 
-        $pdf->SetFont('thsarabun', 'B');
+        $pdf->SetFont('thsarabun', '');
         $pdf->SetTextColor(0, 0, 0);
-        $pdf->SetFontSize(26);
-        $pdf->MultiCell(0, 0, "ขอมอบประกาศนียบัตรนี้ให้ไว้เพื่อแสดงว่า", 0, 'C', 0, 1, 0, 90);
+        $pdf->SetFontSize(22);
+        $pdf->MultiCell(0, 0, "ขอมอบประกาศนียบัตรนี้ให้ไว้เพื่อแสดงว่า", 0, 'C', 0, 1, 0, 85);
 
         $pdf->SetFont('thsarabun', 'B');
         $pdf->SetFontSize(30);
         $pdf->SetTextColor(0, 0, 0);
         // MultiCell($w, $h, $txt, $border=0, $align='J', $fill=0, $ln=1, $x='', $y='', $reseth=true, $stretch=0, $ishtml=false, $autopadding=true, $maxh=0)
-        $pdf->MultiCell(0, 0, $person['name'], 0, 'C', 0, 1, 0, 100);
+        $pdf->MultiCell(0, 0, $person['name'], 0, 'C', 0, 1, 0, 93);
+
+        $pdf->SetFont('thsarabun', '');
+        $pdf->SetTextColor(0, 0, 0);
+        $pdf->SetFontSize(22);
+        $pdf->MultiCell(0, 0, $person['school'], 0, 'C', 0, 1, 0, 104);
 
 
-        $pdf->SetFont('thsarabun', 'B');
+        $pdf->SetFont('thsarabun', '');
         $pdf->SetTextColor(0, 0, 0);
         $pdf->SetFontSize(26);
         $pdf->MultiCell(0, 0, 'ได้สอบผ่านการทดสอบสมรรถนะและทักษะที่จำเป็น', 0, 'C', 0, 1, 0, 113);
-        $pdf->SetFont('thsarabun', 'B');
+        $pdf->SetFont('thsarabun', '');
         $pdf->SetTextColor(0, 0, 0);
         $pdf->SetFontSize(26);
-        $pdf->MultiCell(0, 0, 'สำหรับบัณฑิตด้านวิทยาศาสตร์และเทคโนโลยี สาขา' . $person['department'], 0, 'C', 0, 1, 0, 123);
+        $pdf->MultiCell(0, 0, 'สำหรับบัณฑิตด้านวิทยาศาสตร์และเทคโนโลยี '.$person['year'].' สาขา' . $person['department'], 0, 'C', 0, 1, 0, 123);
+        $pdf->SetFont('thsarabun', 'B');
+        $pdf->SetFontSize(30);
         $pdf->MultiCell(0, 0, 'ระดับ '. $person['award'], 0, 'C', 0, 1, 0, 133);
 
 
-        $pdf->SetFont('thsarabun', 'B');
+        $pdf->SetFont('thsarabun', '');
         $pdf->SetTextColor(0, 0, 0);
-        $pdf->SetFontSize(26);
-        $pdf->MultiCell(0, 0, 'ให้ไว้ ณ วันที่ '.$date_at, 0, 'C', 0, 1, 0, 143);
+        $pdf->SetFontSize(24);
+        $pdf->MultiCell(0, 0, 'ให้ไว้ ณ วันที่ '.$date_at, 0, 'C', 0, 1, 0, 145);
 
         // QR COde
         $style = [
@@ -110,7 +119,7 @@
             $cell_collection = $objPHPExcel->getActiveSheet()->getCellCollection();
             function get($c)
             {
-                $k = array("A" => "num", "B" => "student", "C" => "department", "D" => "level", "E" => "event", "F" => "event_date");
+                $k = array("A" => "num", "B" => "student", "C" => "school", "D" => "year", "E" => "department", "F" => "level", "G" => "event", "H" => "event_date");
                 return $k[$c];
             }
 
@@ -179,7 +188,9 @@
                 $folder = $_POST['folder'];
                 $num = $st['num'];
                 $name = $st['student'];
+                $team = $st['school'];
                 $school = $st['department'];
+                $year = $st['year'];
                 $level = $st['level'];
                 $event = $st['event'];
                 $event_date = $st['event_date'];
@@ -204,42 +215,49 @@
                 // พื้นหลัง
                 $pdf->Image($_SERVER['DOCUMENT_ROOT'] . $bg, 0, 0, 0, 210, '', '', '', false, 150, '', false, false, 0);
                  // หัวเรื่อง
-                $pdf->SetFont('thsarabun', 'B');
-                $pdf->SetTextColor(0, 0, 0);
-                $pdf->SetFontSize(36);
-                $pdf->MultiCell(0, 0, "สมาคมวิทยาศาสตร์แห่งประเทศไทยในพระบรมราชูปถัมภ์ ", 0, 'C', 0, 1, 0, 50);
-                $pdf->SetFontSize(36);
-                $pdf->MultiCell(0, 0, "สภาคณบดีวิทยาศาสตร์แห่งประเทศไทย", 0, 'C', 0, 1, 0, 62);
-                $pdf->SetFontSize(36);
-                $pdf->MultiCell(0, 0, "และคณะวิทยาศาสตร์ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง", 0, 'C', 0, 1, 0, 74);
-
-                $pdf->SetFont('thsarabun', 'B');
-                $pdf->SetTextColor(0, 0, 0);
-                $pdf->SetFontSize(26);
-                $pdf->MultiCell(0, 0, "ขอมอบประกาศนียบัตรนี้ให้ไว้เพื่อแสดงว่า", 0, 'C', 0, 1, 0, 90);
+                 $pdf->SetFont('thsarabun', '');
+                 $pdf->SetTextColor(0, 0, 0);
+                 $pdf->SetFontSize(34);
+                 $pdf->MultiCell(0, 0, "สมาคมวิทยาศาสตร์แห่งประเทศไทยในพระบรมราชูปถัมภ์ ", 0, 'C', 0, 1, 0, 49);
+                 $pdf->SetFontSize(34);
+                 $pdf->MultiCell(0, 0, "สภาคณบดีวิทยาศาสตร์แห่งประเทศไทย", 0, 'C', 0, 1, 0, 60);
+                 $pdf->SetFontSize(34);
+                 $pdf->MultiCell(0, 0, "และคณะวิทยาศาสตร์ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง", 0, 'C', 0, 1, 0, 72);
+         
+                 $pdf->SetFont('thsarabun', '');
+                 $pdf->SetTextColor(0, 0, 0);
+                 $pdf->SetFontSize(22);
+                 $pdf->MultiCell(0, 0, "ขอมอบประกาศนียบัตรนี้ให้ไว้เพื่อแสดงว่า", 0, 'C', 0, 1, 0, 85);
 
                 $pdf->SetFont('thsarabun', 'B');
                 $pdf->SetFontSize(30);
                 $pdf->SetTextColor(0, 0, 0);
                 // MultiCell($w, $h, $txt, $border=0, $align='J', $fill=0, $ln=1, $x='', $y='', $reseth=true, $stretch=0, $ishtml=false, $autopadding=true, $maxh=0)
-                $pdf->MultiCell(0, 0, $name, 0, 'C', 0, 1, 0, 100);
+                $pdf->MultiCell(0, 0, $name, 0, 'C', 0, 1, 0, 93);
 
+                $pdf->SetFont('thsarabun', '');
+                $pdf->SetTextColor(0, 0, 0);
+                $pdf->SetFontSize(22);
+                $pdf->MultiCell(0, 0, $team, 0, 'C', 0, 1, 0, 104);
 
-                $pdf->SetFont('thsarabun', 'B');
+                $pdf->SetFont('thsarabun', '');
                 $pdf->SetTextColor(0, 0, 0);
                 $pdf->SetFontSize(26);
                 $pdf->MultiCell(0, 0, 'ได้สอบผ่านการทดสอบสมรรถนะและทักษะที่จำเป็น', 0, 'C', 0, 1, 0, 113);
-                $pdf->SetFont('thsarabun', 'B');
+                $pdf->SetFont('thsarabun', '');
                 $pdf->SetTextColor(0, 0, 0);
                 $pdf->SetFontSize(26);
-                $pdf->MultiCell(0, 0, 'สำหรับบัณฑิตด้านวิทยาศาสตร์และเทคโนโลยี สาขา' . $school, 0, 'C', 0, 1, 0, 123);
+                $pdf->MultiCell(0, 0, 'สำหรับบัณฑิตด้านวิทยาศาสตร์และเทคโนโลยี '.$year.' สาขา' . $school, 0, 'C', 0, 1, 0, 123);
+                $pdf->SetFont('thsarabun', 'B');
+                $pdf->SetTextColor(0, 0, 0);
+                $pdf->SetFontSize(30);
                 $pdf->MultiCell(0, 0, 'ระดับ '. $level, 0, 'C', 0, 1, 0, 133);
 
 
-                $pdf->SetFont('thsarabun', 'B');
+                $pdf->SetFont('thsarabun', '');
                 $pdf->SetTextColor(0, 0, 0);
-                $pdf->SetFontSize(26);
-                $pdf->MultiCell(0, 0, 'ให้ไว้ ณ วันที่ '.$event_date, 0, 'C', 0, 1, 0, 143);
+                $pdf->SetFontSize(24);
+                $pdf->MultiCell(0, 0, 'ให้ไว้ ณ วันที่ '.$event_date, 0, 'C', 0, 1, 0, 145);
 
                 //สร้างไฟล์
                 if($_SESSION['linux']){
@@ -290,10 +308,10 @@
                 $dataC['school']=$school;
                 $dataC['project']="";
                 $dataC['teacher']="";
-                $dataC['team']="";
-                $dataC['activity']="";
-                $dataC['level']=$level;
-                $dataC['award']="";
+                $dataC['team']=$team;
+                $dataC['activity']=$year;
+                $dataC['level']="";
+                $dataC['award']=$level;
                 $dataC['event']=$event;
                 $dataC['event_date']=$event_date;
                 $dataC['ca_name']=$ca_name;

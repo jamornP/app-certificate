@@ -108,7 +108,7 @@
             'module_width' => 1,
             'module_hight' => 1
         ];
-        $pdf->write2DBarcode('http://sciserv01.sci.kmitl.ac.th/sci-certificate/', 'QRCODE,M', 10, 172, 30, 30, $style, 'N');
+        $pdf->write2DBarcode('http://certificate.science.kmitl.ac.th/sci-certificate/', 'QRCODE,M', 10, 172, 30, 30, $style, 'N');
         $pdf->Output('preview.pdf', 'I');
         $pdf->Close();
     }
@@ -293,7 +293,7 @@
 
                 //สร้าง pdf
                 $pdf->Output($fileNL, 'F');
-                // $pdf->write2DBarcode('http://sciserv01.sci.kmitl.ac.th/sci-certificate/', 'QRCODE,M', 10, 172, 30, 30, $style, 'N');
+                // $pdf->write2DBarcode('http://certificate.science.kmitl.ac.th/sci-certificate/', 'QRCODE,M', 10, 172, 30, 30, $style, 'N');
                 // $pdf->Output('preview.pdf', 'I');
 
                 $dataC['ba_name']=$_POST['batch_name'];
