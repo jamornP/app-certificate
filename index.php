@@ -61,13 +61,12 @@ date_default_timezone_set('Asia/Bangkok');
                                 $sql = "event={$ev['e_name']}";
                                 echo "
                                     
-                                        <div class='col-md-2 col-6 p-1'>
-                                            <a href='/app-certificate/search.php?{$sql}'>
-                                                <img src='{$ev['e_img']}' class='img-thumbnail shadow' alt='...'>
-                                                <p class='text-center'>{$ev['e_name']}</p>
-                                            </a>
-                                        </div>
-                                    
+                                    <div class='col-md-3 col-6 p-1 h-100'>
+                                        <a href='#' onclick='gotoSearch({$ev['e_id']});'>
+                                            <img src='{$ev['e_img']}' class='img-thumbnail shadow' alt='...'>
+                                            <p class='text-center'>{$ev['e_name']}</p>
+                                        </a>
+                                    </div>
                                 ";
                             }
                             ?>
@@ -82,5 +81,24 @@ date_default_timezone_set('Asia/Bangkok');
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    function gotoSearch(value){
+        $.ajax({
+            url: 'event.php',
+            method: 'POST',
+            data: {
+                ev: value
+            },success: (response) => {
+                console.log('good');
+                if(response.RespCode == 200){
+                    window.location.href = 'search.php'
+                }
+            }, error: (err) => {
+                console.log('bad', err);
+            }
+        });
+    }
+</script>
 </body>
 </html>

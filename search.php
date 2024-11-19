@@ -1,7 +1,7 @@
 <?php require $_SERVER['DOCUMENT_ROOT'] . "/app-certificate/vendor/autoload.php"; ?>
 <?php require $_SERVER['DOCUMENT_ROOT'] . "/app-certificate/function/function.php"; ?>
 <?php
-
+session_start();
 use App\Model\Mangement;
 $mangeObj = new Mangement;
 date_default_timezone_set('Asia/Bangkok');
@@ -50,11 +50,12 @@ date_default_timezone_set('Asia/Bangkok');
             <div class="card-header bg-primary text-white">
                <h4>
                     <?php 
-                        if(isset($_GET['event'])){
-                            echo $_GET['event'];
-                            $_SESSION['event']=$_GET['event'];
+                    // print_r($_SESSION);
+                        if(isset($_SESSION['event'])){
+                            echo $_SESSION['event'];
                         }else{
-                            echo "Search Certificate";
+                            header("Location: index.php");
+                            exit();
                         }
                         
                     ?>
@@ -63,7 +64,7 @@ date_default_timezone_set('Asia/Bangkok');
             <div class="card-body">
                 <form class="d-flex" action="" method="POST">
                     <input class="form-control me-2" type="search" placeholder="ใส่ชื่ออย่างเดียว" aria-label="Search" name="search" autofocus="">
-                    <input class="form-control me-2" type="hidden" name="e_name" value='<?php if(isset($_GET['event'])){echo $_SESSION['event'];}?>'>
+                    <input class="form-control me-2" type="hidden" name="e_name" value='<?php if(isset($_SESSION['event'])){echo $_SESSION['event'];}?>'>
                     <button class="btn btn-outline-success" type="submit" name="submit">Search</button>
                 </form>
             </div>

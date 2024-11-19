@@ -500,6 +500,22 @@ class Mangement extends DbCertificate{
         $data = $stmt->fetchAll();
         return $data;
     }
+    public function getEventById($data){
+        $result = null;
+        $sql ="
+            SELECT * FROM tb_event
+            WHERE e_id = ? AND e_show = 1
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$data]);
+        if($stmt){
+            $data2 = $stmt->fetchAll();
+            $result = $data2[0];
+        }else{
+            $result = false;
+        }
+        return $result;
+    }
     public function getEventShow(){
         $sql ="
             SELECT * FROM tb_event

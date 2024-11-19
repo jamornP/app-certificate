@@ -115,17 +115,28 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="row">
-                                            <?php
-                                            $data = $mangeObj->getEvent();
-                                            foreach ($data as $ev) {
-                                                echo "
-                                                    <div class='col-md-2 col-6 p-1'>
-                                                        <img src='{$ev['e_img']}' class='img-thumbnail shadow' alt='...'>
-                                                        <p class='text-center'>{$ev['e_name']}</p>
-                                                    </div>
-                                                ";
-                                            }
-                                            ?>
+                                            <!-- <div class="card-group"> -->
+                                                <?php
+                                                $data = $mangeObj->getEvent();
+                                                foreach ($data as $ev) {
+                                                    echo "
+                                                        <div class='col-md-3 col-6 p-1'>
+                                                            <div class='card h-100'>
+                                                                <div class='card-header bg-success' style='height: 100px; display: flex; justify-content: center; align-items: center;'>
+                                                                    <p class='text-center'>{$ev['e_name']}</p>
+                                                                </div>  
+                                                                <div class='card-body'>
+                                                                    <img src='{$ev['e_img']}' class='img-thumbnail shadow' alt='...'>
+                                                                </div>  
+                                                                <div class='card-footer'>
+                                                                    <input type='text' class='form-control fs-10' name='' value='http://certificate.science.kmitl.ac.th/app-certificate/link.php?id={$ev['e_id']}'>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    ";
+                                                }
+                                                ?>
+                                            <!-- </div> -->
                                         </div>
                                     </div>
                                 </div>
